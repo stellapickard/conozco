@@ -1,0 +1,66 @@
+@import 'https://fonts.googleapis.com/css?family=Lobster';
+@import 'https://fonts.googleapis.com/css?family=Ribeye';
+@import 'https://fonts.googleapis.com/css?family=Comfortaa';
+
+/*OFF-WHITE - #f4ece1
+PINK - #cc007a
+BLACK - #000000
+GREY - #575757*/
+
+body {
+	width: 100%;
+}
+
+/* LOGIN PAGE STYLING */
+
+.login_body {
+	text-align: center; 
+	background-image: url('./images/chalkboard1.jpg');
+	background-repeat: cover; 
+	width: 100%;
+	/*THIS IS NOT THE  MOST EFFICIENT WAY TO BACKGROUND TO FIT PAGE*/
+	height: 828px;
+	margin: 0;
+	padding: 0;
+}
+
+.gs_login_banner {
+	font-family: Lobster;
+	color: #cc007a;
+	font-size: 75px;
+	padding-top: 200px;
+	padding-bottom: 40px;
+	text-shadow: 2px 2px #f4ece1;
+
+}
+
+.login_button {
+	background-color: #cc007a;
+	border: solid 1px #cc007a;
+	border-radius: 3px;
+	font-family: Comfortaa;
+	padding: 10px;
+	opacity: 0.7;
+}
+
+.login_button:hover {
+	opacity: 0.5;
+	transition: 0.2;
+}
+
+.login_link {
+	color: #f4ece1;
+}
+
+.login_link:hover {
+	text-decoration: none !important;
+	color: #f4ece1;
+}
+
+/* PROFILE PAGE STYLING */
+
+.employee_pic {
+	height: 200px;
+	width: 200px;
+	border: solid 3px #cc007a;
+}
