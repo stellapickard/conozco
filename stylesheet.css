@@ -135,10 +135,106 @@ body {
 	height: 830px;
 }
 
+/* STYLING ON WORK ANNOUNCEMENT BUBBLE*/
+
+.workfeed_scroll {
+	overflow: scroll;
+	height: 710px;
+	width: 100%;
+	position: fixed;
+}
+
 .announcement_bubble {
 	border: 2px solid #f4ece1;
 	border-radius: 4px;
 	background-color: #f4ece1;
-	height: 100px;
+	height: 160px;
 	width: 500px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	opacity: 0.9;
 }
+
+.gen_announcement_bubble {
+	border: 2px solid #cc007a;
+	border-radius: 4px;
+	background-color: #cc007a;
+	height: 160px;
+	width: 500px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	opacity: 0.9;
+}
+
+.announce_subject {
+	padding-left: 10px;
+
+}
+
+.announce_text {
+	width: 100%;
+	border: solid 1px #f4ece1;
+}
+
+.announce_importance {
+	font-size: 24px;
+	color: #cc007a;
+	text-align: center;
+}
+
+.gen_announce_importance {
+	font-size: 24px;
+	color: #000000;
+	text-align: center;
+}
+
+.comment_box {
+	padding-top: 7px;
+}
+
+.announce_comment {
+	height: 35px;
+	border-radius: 3px;
+	border: 1px solid white;
+	width: 100%;
+}
+
+/* STYLING ON GENERAL ANNOUNCEMENT BUBBLE*/
+
+
+/*STYLING ON DETAILS OF PERSON POSTING ANNOUNCEMENT */
+.poster_id {
+	padding-top: 30px;
+	width: 100%;
+	color: #f4ece1;
+	text-align: center;
+}
+
+
+.poster_pic {
+	height: 75px;
+	width: 75px;
+	border: solid 4px #cc007a;
+	border-radius: 100%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.posterimg {
+	height: 100%;
+	width: 100%;
+}
+
+.poster_name {
+	font-family: Lobster;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.post_time {
+	font-family: Comfortaa;
+
+}
+
+
+
