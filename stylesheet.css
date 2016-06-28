@@ -59,8 +59,86 @@ body {
 
 /* PROFILE PAGE STYLING */
 
-.employee_pic {
+/* FOR SOME REASON THIS PIC_COL CLASS IS NOT PULLING THROUGH, DON'T KNOW WHY. NEED TO FIGURE OUT */
+.profile_body {
+	background-image: url('./images/chalkboard1.jpg');
+}
+
+.profile_header {
 	height: 200px;
-	width: 200px;
-	border: solid 3px #cc007a;
+}
+
+.pic_col {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.employee_pic {
+	height: 320px;
+	width: 320px;
+	border: 6px solid #cc007a;
+	margin: 15px;
+	background-image: url('./images/linkedin.jpg');
+	background-repeat: none;
+	background-size: 320px, 320px;
+	transition: 0.3;
+}
+
+/* HOVER ON PROFILE */
+.profile_hover_replacement {
+	text-align: center;
+	background-color: #f4ece1;
+	height: 320px;
+	width: 320px;
+	border: 6px solid #cc007a;
+	margin: 15px;
+	/*background-image: url('./images/linkedin.jpg');*/
+	background-repeat: none;
+	background-size: 320px, 320px;
+	transition: 0.3;
+	visibility: visible;
+}
+
+.profile_hover_replacement {
+	visibility: visible;
+	cursor: pointer;
+}
+
+.profile_name {
+	font-family: Lobster;
+	font-size: 24px;
+	color: #cc007a;
+	padding-top: 45px;
+}
+
+.profile_details:first-of-type {
+	padding-top: 50px;
+}
+
+.profile_details {
+	line-height: 2px;
+	font-weight: bold;
+	font-family: Comfortaa;
+	font-size: 18px;
+}
+
+/* WORK FEED STYLING */
+
+.navbarstuff {
+	height: 200px;
+	color: #f4ece1;
+}
+
+.feed_work_body {
+	background-image: url('./images/chalkboard1.jpg');
+	width: 100%;
+	height: 830px;
+}
+
+.announcement_bubble {
+	border: 2px solid #f4ece1;
+	border-radius: 4px;
+	background-color: #f4ece1;
+	height: 100px;
+	width: 500px;
 }
