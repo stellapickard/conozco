@@ -1,39 +1,36 @@
 
+$(document).ready(function(){
+    console.log( "ready!" );
+
 // WEB PAGE AUTO SIZE FUNCTION
 // function autoResizeDiv()
 //         {
-//             document.getElementById('main').style.height = window.innerHeight +'px';
+//             document.getElementById('#main').css.height = window.innerHeight +'px';
 //         }
 //         window.onresize = autoResizeDiv;
 //         autoResizeDiv();
 
 // PROFILE PAGE SWAP OUT FUNCTION
 
-$(document).ready(function() {
-    console.log( "ready!" );
-
-
-    $("default_display").mousehover(function(){
-        var d = document.getElementById("default_display");
-        var h = document.getElementById("hover_display");
-
-        if( d.style.display === "block" ) {
-            d.style.display = "none";
-            h.style.display = "block";
-        }
+    $('.default_display').mouseover(function(){
+            $(this).find('.hover_display').css('display','block');
     });
 
-    $("hover_display").mouseout(function(){
-        var d = document.getElementById(default_display);
-        var h = document.getElementById(hover_display);
-
-        if (d.style.display === "none"){
-            d.style.display = "block";
-            h.style.display = "none";
-        }
-
+    $('.default_display').mouseout(function(){
+        $(this).find('.hover_display').css('display','none');
     });
 
+
+// ON CLICK FUNCTION FOR MOBILE DESIGN
+    $('.default_display').click(function(){
+            if ($(this).find('.hover_display').css('display') === "none"){
+                $(this).find('.hover_display').css('display', 'block')
+            } else {
+                $(this).find('.hover_display').css('display', 'none');
+            }
+    });
+
+// closing tag of on ready function
 });
 
 // IMAGE UPLOAD FUNCTION
@@ -68,3 +65,6 @@ function imgUploadFunction(){
     }
     document.getElementById("img_upload").innerHTML = txt;
 }
+
+
+

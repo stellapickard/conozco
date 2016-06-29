@@ -4,6 +4,8 @@
 	<title> Employee Profiles | Get Smarter</title>
 	<link rel="stylesheet" href="../stylesheet.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script src="../script.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -18,8 +20,8 @@
 
 		<div class="row">
 			<div class="col-md-3 pic_col">
-				<div class="employee_pic" id="default_display">
-					<div class="profile_hover_replacement" id="hover_display" onmouseout="SwapDivs('default_display','hover_display')">
+				<div class="employee_pic default_display">
+					<div class="profile_hover_replacement hover_display" style="display:none">
 						<h1 class="profile_name"> Stella Pickard </h1>
 						<p class="profile_details"> Web Developer </p><br>
 						<p class="profile_details"> 10 March </p><br> 
