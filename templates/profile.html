@@ -4,11 +4,13 @@
 	<title> Employee Profiles | Get Smarter</title>
 	<link rel="stylesheet" href="../stylesheet.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="../script.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body class="profile_body">
+<body class="profile_body" id="main">
 
 
-<!-- MICHAEL, DON'T ADD CODE BELOW THIS FOR NOW, PLEASE -->
+<!-- MICHAEL, DON'T ADD CODE BELOW THIS FOR NOW, PLEASE..... wapDivs('default_display','hover_display') -->
 	<div class="container-fluid" ng-controller="profile_control" ng-view>
 		<div class="row">
 			<div class="col-md-12 profile_header"></div>
@@ -16,15 +18,16 @@
 
 		<div class="row">
 			<div class="col-md-3 pic_col">
-				<div class="employee_pic">
-					<!-- HOVER EFFECT OVER PROFILE IMAGE -->
-					<div class="profile_hover_replacement">
+				<div class="employee_pic" id="default_display">
+					<div class="profile_hover_replacement" id="hover_display" onmouseout="SwapDivs('default_display','hover_display')">
 						<h1 class="profile_name"> Stella Pickard </h1>
 						<p class="profile_details"> Web Developer </p><br>
 						<p class="profile_details"> 10 March </p><br> 
 						<p class="profile_details"> Obsessed with mountainbiking! </p>
 					</div>
 				</div>
+					<!-- HOVER EFFECT OVER PROFILE IMAGE -->
+				
 			</div>
 			<div class="col-md-3 pic_col">
 				<div class="employee_pic"></div>

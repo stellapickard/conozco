@@ -4,8 +4,10 @@
 	<title> Admin | Get Smarter</title>
 	<link rel="stylesheet" href="../stylesheet.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="../script.js"></script>
 </head>
-<body>
+<body class="admin_body" onload="imgUploadFunction()">
 
 <div class="container-fluid admin_body col-md-12">
 	<div class="admin_header"> 
@@ -21,7 +23,25 @@
 					<br> 
 
 					<h5 class="form_headings"> Department </h5>
-					<select class="emp_input" placeholder="select department">       </select>
+					<select class="emp_input selectpicker">
+						<option> select department</option>
+						<option> Academic Staff </option>
+						<option> Business Development </option>
+						<option> CEO Office </option>
+						<option> Creative Studios  </option>
+						<option> Finance </option>
+						<option> Learning Design </option>
+						<option> Learning Technology </option>
+						<option> Marketing </option>
+						<option> Office of the Registrar </option>
+						<option> Operations </option>
+						<option> Project Management </option>
+						<option> Sales and Enrollments</option>
+						<option> Student Performance</option>
+						<option> Systems and Technology</option>
+						<option> S.W.A.T</option>
+						<option> Talent Management</option>
+					</select>
 					<br> 
 
 					<h5 class="form_headings"> Role </h5>
@@ -37,8 +57,14 @@
 					<br> 
 					<br>
 
-					<button class="login_button"><a class="login_link" href="#"> Upload image of Employee </a></button>
-					
+					<!-- upload image code--> 
+
+					<label class="btn btn-file login_button img_upload">
+    					Upload image of Employee <input onchange="imgUploadFunction()" id="photo_upload" type="file" style="display: none;">
+					</label>
+					<p id="img_upload"></p>
+
+					<!-- end of upload image code --> 					
 				</form>
 			</div>
 			<div class="col-md-6 checkout_user">
@@ -47,7 +73,10 @@
 					<h2 class="form_head"> Edit &amp; View  </h2>
 						<div class="col-md-12">
 							<h5 class="form_headings"> Remove Employee </h5>
-							<select class="emp_input" type="text" placeholder="select employee name"> </select>
+							<select class="emp_input" type="text" placeholder="select employee name"> 
+								<option> select employee </option>
+								<option> </option>
+							</select>
 							<br> 
 							<br>
 							<button class="login_button"><a class="login_link" href="#"> Remove </a></button>
@@ -55,10 +84,13 @@
 
 						<div class="col-md-12 happiness_div">
 							<h5 class="form_headings"> View Employee Happiness </h5>
-							<select class="emp_input" type="text" placeholder="select employee name"> </select>
+							<select class="emp_input" type="text" placeholder="select employee name"> 
+								<option> select employee </option>
+								<option> </option>
+							</select>
 							<br> 
 							<br>
-							<p class="employee_happiness"> Your selected employee's happiness score is ... <span class="happiness_score"> 14 </span><p>
+							<p class="employee_happiness"> Your selected employee's happiness score is ... <span class="happiness_score"> ? </span><p>
 						</div>
 
 					</div>
