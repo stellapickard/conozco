@@ -1,3 +1,4 @@
+// NON-ANGULAR CODE FOR PROFILE PAGE IMAGE SWAP OUT, PHOTO UPLOAD AND FULL PAGE BACKGROUND 
 
 $(document).ready(function(){
     console.log( "ready!" );
@@ -66,5 +67,6 @@ function imgUploadFunction(){
     document.getElementById("img_upload").innerHTML = txt;
 }
 
+// END OF NON-ANGULAR CODE
 
 
