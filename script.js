@@ -1,12 +1,3 @@
-
-
-// IMAGE UPLOAD FUNCTION
-
-
-
-// END OF NON-ANGULAR CODE
-
-
 var app = angular.module("ConozcoApp", ["ngRoute"]);
 
 // ROUTE CONFIGURATION
@@ -30,7 +21,7 @@ app.config(function($routeProvider){
 	})
 
 	$routeProvider.when("/general", {
-		tempalteUrl: "templates/feed_general.html",
+		templateUrl: "templates/feed_general.html",
 		controller: "generalfeed_controller"
 	})
 
@@ -53,8 +44,6 @@ app.controller('login_controller', function($scope, $http){
 // PROFILE_CONTROLLER
 
 app.controller('profile_controller', function($scope, $http){
-	$(document).ready(function(){
-		console.log( "ready!" );
 
 	// WEB PAGE AUTO SIZE FUNCTION
 	// function autoResizeDiv()
@@ -86,7 +75,7 @@ app.controller('profile_controller', function($scope, $http){
 
 // closing tag of on ready function
 	});
-});
+
 
 // WORKFEED_CONTROLLER
 

@@ -18,10 +18,6 @@ body {
 	font-family: 'Comfortaa', cursive;
 }
 
-.container-fluid {
-	
-}
-
 .pageview {
 	margin-top: 190px;
 }
@@ -74,7 +70,7 @@ body {
 	margin-bottom: 10px;
 	height: 100px;
 	width: 100px;
-	border: 2px solid pink;
+	border: 2px solid #db4ca1;
 	border-radius: 100%;
 	background: grey;
 	float: right;
@@ -228,8 +224,8 @@ body {
 
 .feed_gen_body {
 	background-image: url('./images/chalkboard1.jpg');
-	width: 100%;
-	height: 830px;
+/*	width: 100%;
+	height: 830px;*/
 }
 
 /* STYLING ON WORK ANNOUNCEMENT BUBBLE*/
