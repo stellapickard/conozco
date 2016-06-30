@@ -10,8 +10,82 @@ MODAL PINK - #db4ca1*/
 
 
 body {
-	width: 100%;
+	padding: 0;
+	margin: 0;
+	background: black;
+	font-family: 'Comfortaa', cursive;
 }
+
+.container {
+	padding: 0;
+	margin: 0;
+}
+
+/*Navbar*/
+
+.navbar {
+	background-image: url("./images/chalkboard.jpg");
+	background-width: 100%;
+	width: 100%;
+	position: fixed;
+	border: 2px solid pink;
+}
+
+.characterImg {
+	margin-left: 10px;
+	width: 150px;
+}
+
+.peoplemap {
+	
+	border: 2px solid antiquewhite;
+	float: right;
+	margin-top: 35px;
+	height: 70px;
+	width: 70px;
+	background: lightslategrey;
+	border-radius: 2px;
+}
+
+.peoplemaptext {
+	color: antiquewhite;
+	padding: auto;
+}
+
+.navtext {
+	font-size: 1.4em;
+	padding-left: 6px;
+	padding-right: 6px;
+	border-radius: 2px;
+	margin-top: -2px;
+	border: 2px solid antiquewhite;
+	background: grey;
+	color: antiquewhite;
+}
+
+.profilepic {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 100px;
+	width: 100px;
+	border: 2px solid pink;
+	border-radius: 100%;
+	background: grey;
+	float: right;
+}
+
+.drpdwn {
+	text-align: right;
+	background: grey;
+	opacity: .9;	
+
+}
+
+.navlink {
+	color: antiquewhite;
+	font-size: 1.2em;
+}
+
 
 /* LOGIN PAGE STYLING */
 

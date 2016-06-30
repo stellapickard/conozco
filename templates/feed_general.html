@@ -1,14 +1,54 @@
-
-<div ng-view> 
+ 
 <!-- ANNOUNCEMENT TOGGLE BETWEEN GENERAL AND WORK--> 
 <div class="gen_announce_vertical">switch to general announcements</div>
-<div class="container-fluid feed_gen_body" id="main"> 
+<div class="row feed_gen_body">
+<div class="col-xs-12">
 
 <!--THIS IS WHERE THE NAV BAR STUFF GOES-->
-	<div class="navbarstuff">
-		Navbarstuff goes here
-
+<div class="row navbar">
+	<div class="col-xs-12">
+		<div class="row">
+			<div class="col-xs-7 character">
+				<img class="characterImg" src="./resources/images/navbar/tempcharacter.png" alt="">
+			</div>
+			<div class="col-xs-5 userButtonMap">
+				<div class="row">
+					<div class="col-xs-6 text-center">
+						<p class="peoplemap">
+							<a href="#">
+								<span class="peoplemaptext">People Map</span>
+							</a>
+						</p>
+					</div>
+					<div class="col-xs-6">
+						<div class="dropdown text-right">
+						<button class="dropdown-toggle navtext" type="button" data-toggle="dropdown">Michael
+							<span class="caret"></span>
+						</button>
+							<ul class="dropdown-menu dropdown-menu-right drpdwn">
+								<li><a href="#">
+									<span class="navlink">Edit Profile</span>
+								</a></li>
+								<li ng-show=""><a href="#">
+									<span class="navlink">Admin</span>
+								</a></li>
+								<li><a href="#">
+									<span class="navlink">Log Out</span>
+								</a></li>
+							</ul>
+						</div>
+						<div class="">
+							<img class="profilepic" src="https://lh3.googleusercontent.com/-wysvRmf4xz4/AAAAAAAAAAI/AAAAAAAAAAA/GluI72KIjv0/photo.jpg">		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>					
+		<div class="row">
+				
+		</div>
 	</div>
+</div>	
 
 <!-- MICHAEL, DON'T ADD CODE BELOW THIS FOR NOW, PLEASE -->
 
@@ -197,5 +237,6 @@
 
 </div>
 
-
 </div>
+</div>
+
