@@ -69,4 +69,83 @@ function imgUploadFunction(){
 
 // END OF NON-ANGULAR CODE
 
+var app = angular.module("ConozcoApp", ["ngRoute"]);
+
+// ROUTE CONFIGURATION
+
+app.config(function($routeProvider){
+    $routeProvider
+
+    .when ("/", {
+        templateUrl: "/login.html",
+        controller: "login_controller"
+    })
+
+    .when("/profile", {
+        templateUrl: "template/profile.html",
+        controller: "profile_controller"
+    })
+
+    .when("/workfeed", {
+        templateUrl: "template/feed_work.html",
+        controller: "workfeed_controller"
+    })
+
+    .when("/generalfeed", {
+        tempalteUrl: "template/feed_general.html",
+        controller: "generalfeed_controller"
+    })
+
+    .when("/admin", {
+        templateUrl: "template/admin.html",
+        controller: "admin_controller"
+    })
+
+});
+
+// LOGIN_CONTROLLER 
+
+ConozcoApp.controller('login_controller', function($scope, $http){
+
+
+
+
+});
+
+// PROFILE_CONTROLLER
+
+ConozcoApp.controller('profile_controller', function($scope, $http){
+
+
+
+
+});
+
+// WORKFEED_CONTROLLER
+
+ConozcoApp.controller('workfeed_controller', function($scope, $http){
+
+
+
+
+});
+
+// GENERALFEED_CONTROLLER
+
+ConozcoApp.controller('generalfeed_controller', function($scope, $http){
+
+
+
+
+});
+
+// ADMIN_CONTROLLER
+
+ConozcoApp.controller('admin_controller', function($scope, $http){
+
+
+
+
+});
+
 
