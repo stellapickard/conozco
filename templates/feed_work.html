@@ -4,14 +4,46 @@
 	<title> Work Discussions</title>
 	<link rel="stylesheet" href="../stylesheet.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
+<div class="vertical2">switch to work announcements</div>
 <div class="container-fluid feed_work_body"> 
 
 <!--THIS IS WHERE THE NAV BAR STUFF GOES-->
 	<div class="navbarstuff">
 		Navbarstuff goes here
+
+	</div>
+<!-- MODAL STUFF --> 
+
+	<div class="container" id="main">
+		<!-- Trigger the modal with a button -->
+		<div class="add_announce" data-toggle="modal" data-target="#myModal"> <span class="plus"> + </span></div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header m_header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title m_title"> Add Announcement</h4>
+					</div>
+					<div class="modal-body">
+						<input class="announce_modal" type="text">
+					</div>
+					<div class="modal-footer m_footer">
+						<button type="button" class="publish_btn btn btn-default" data-dismiss="modal">Publish</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
 
 	</div>
 
@@ -20,12 +52,17 @@
 
 	<div class="row">
 	
+		
+
 		<div class="col-md-6 col-md-offset-3 announcement_bubble">
 			<div class="col-md-12"> 
 				<h4 class="announce_subject"> Announcement Subject</h4>
 				<textarea class="announce_text"> </textarea>
 			</div>
-			<div class="col-md-1 announce_importance"> <p> &hearts; </p> </div>
+			<div class="col-md-1 announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
+			</div>
 			<div class="col-md-11 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment...">
 			</div>
@@ -44,7 +81,10 @@
 				<h4 class="announce_subject"> Announcement Subject</h4>
 				<textarea class="announce_text"> </textarea>
 			</div>
-			<div class="col-md-1 announce_importance"> <p> &hearts; </p> </div>
+			<div class="col-md-1 announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
+			</div>
 			<div class="col-md-11 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment...">
 			</div>
@@ -62,7 +102,10 @@
 				<h4 class="announce_subject"> Announcement Subject</h4>
 				<textarea class="announce_text"> </textarea>
 			</div>
-			<div class="col-md-1 announce_importance"> <p> &hearts; </p> </div>
+			<div class="col-md-1 announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
+			</div>
 			<div class="col-md-11 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment...">
 			</div>
@@ -80,7 +123,10 @@
 				<h4 class="announce_subject"> Announcement Subject</h4>
 				<textarea class="announce_text"> </textarea>
 			</div>
-			<div class="col-md-1 announce_importance"> <p> &hearts; </p> </div>
+			<div class="col-md-1 announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
+			</div>
 			<div class="col-md-11 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment...">
 			</div>
@@ -98,7 +144,10 @@
 				<h4 class="announce_subject"> Announcement Subject</h4>
 				<textarea class="announce_text"> </textarea>
 			</div>
-			<div class="col-md-1 announce_importance"> <p> &hearts; </p> </div>
+			<div class="col-md-1 announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
+			</div>
 			<div class="col-md-11 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment...">
 			</div>
@@ -116,7 +165,10 @@
 				<h4 class="announce_subject"> Announcement Subject</h4>
 				<textarea class="announce_text"> </textarea>
 			</div>
-			<div class="col-md-1 announce_importance"> <p> &hearts; </p> </div>
+			<div class="col-md-1 announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
+			</div>
 			<div class="col-md-11 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment...">
 			</div>

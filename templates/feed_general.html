@@ -6,11 +6,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   
 </head>
 <body>
 
-<div class="container-fluid feed_gen_body"> 
+<div class="container-fluid feed_gen_body" id="main"> 
 
 <!--THIS IS WHERE THE NAV BAR STUFF GOES-->
 	<div class="navbarstuff">
@@ -47,17 +48,72 @@
 		</div>
 
 	</div>
-
+<!-- END OF MODAL STUFF --> 
 <div class="container-fluid genfeed_scroll">	
 
 	<div class="row">
+		<!-- ANNOUNCEMENT TOGGLE BETWEEN GENERAL AND WORK--> 
+		<div class="gen_toggle vertical_text">
+		asfdsafdasdfasf
+			<div style="heigh:200px">
+				<p class="vertical_text"> switch to work announcements </p>
+			</div>
+		</div>
+		<!-- END OF TOGGLE --> 
+		<div class="col-md-6 col-md-offset-3 gen_announcement_bubble">
+		
+			<div class="col-md-12"> 
+				<h4 class="gen_announce_subject"> Announcement Subject</h4>
+				<textarea class="announce_text"> </textarea>
+			</div>
+			<div class="col-md-1 gen_announce_importance"> 
+				<span class="glyphicon glyphicon-education"></span>
+				<p class="importance_score"> 223 </p>
+			</div>
+			<div class="col-md-11 comment_box">
+				<input class="announce_comment" type="text" placeholder="   Comment...">
+			</div>
+		</div>
+		
+		<div class="col-md-3 poster_id">
+				<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
+				<div class="poster_name"> Stella Pickard </div>
+				<div class="post_time"> 12 March 2016 &bull; 14h23</div>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 gen_announcement_bubble">
+			<div class="col-md-12"> 
+				<h4 class="gen_announce_subject"> Announcement Subject</h4>
+				<textarea class="announce_text"> </textarea>
+			</div>
+			<div class="col-md-1 gen_announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
+			</div>
+			<div class="col-md-11 comment_box">
+				<input class="announce_comment" type="text" placeholder="   Comment...">
+			</div>
+		</div>
+		<div class="col-md-3 poster_id">
+				<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
+				<div class="poster_name"> Stella Pickard </div>
+				<div class="post_time"> 12 March 2016 &bull; 14h23</div>
+		</div>
+	</div>
 	
+	<div class="row">
 		<div class="col-md-6 col-md-offset-3 gen_announcement_bubble">
 			<div class="col-md-12"> 
-				<h4 class="announce_subject"> Announcement Subject</h4>
+				<h4 class="gen_announce_subject"> Announcement Subject</h4>
 				<textarea class="announce_text"> </textarea>
 			</div>
-			<div class="col-md-1 gen_announce_importance"> <p> &hearts; </p> </div>
+			<div class="col-md-1 gen_announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
+			</div>
 			<div class="col-md-11 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment...">
 			</div>
@@ -72,28 +128,13 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 gen_announcement_bubble">
 			<div class="col-md-12"> 
-				<h4 class="announce_subject"> Announcement Subject</h4>
+				<h4 class="gen_announce_subject"> Announcement Subject</h4>
 				<textarea class="announce_text"> </textarea>
 			</div>
-			<div class="col-md-1 gen_announce_importance"> <p> &hearts; </p> </div>
-			<div class="col-md-11 comment_box">
-				<input class="announce_comment" type="text" placeholder="   Comment...">
+			<div class="col-md-1 gen_announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
 			</div>
-		</div>
-		<div class="col-md-3 poster_id">
-				<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
-				<div class="poster_name"> Stella Pickard </div>
-				<div class="post_time"> 12 March 2016 &bull; 14h23</div>
-		</div>
-	</div>
-	
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3 gen_announcement_bubble">
-			<div class="col-md-12"> 
-				<h4 class="announce_subject"> Announcement Subject</h4>
-				<textarea class="announce_text"> </textarea>
-			</div>
-			<div class="col-md-1 gen_announce_importance"> <p> &hearts; </p> </div>
 			<div class="col-md-11 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment...">
 			</div>
@@ -108,10 +149,13 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 gen_announcement_bubble">
 			<div class="col-md-12"> 
-				<h4 class="announce_subject"> Announcement Subject</h4>
+				<h4 class="gen_announce_subject"> Announcement Subject</h4>
 				<textarea class="announce_text"> </textarea>
 			</div>
-			<div class="col-md-1 gen_announce_importance"> <p> &hearts; </p> </div>
+			<div class="col-md-1 gen_announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
+			</div>
 			<div class="col-md-11 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment...">
 			</div>
@@ -126,10 +170,13 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 gen_announcement_bubble">
 			<div class="col-md-12"> 
-				<h4 class="announce_subject"> Announcement Subject</h4>
+				<h4 class="gen_announce_subject"> Announcement Subject</h4>
 				<textarea class="announce_text"> </textarea>
 			</div>
-			<div class="col-md-1 gen_announce_importance"> <p> &hearts; </p> </div>
+			<div class="col-md-1 gen_announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
+			</div>
 			<div class="col-md-11 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment...">
 			</div>
@@ -144,28 +191,13 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 gen_announcement_bubble">
 			<div class="col-md-12"> 
-				<h4 class="announce_subject"> Announcement Subject</h4>
+				<h4 class="gen_announce_subject"> Announcement Subject</h4>
 				<textarea class="announce_text"> </textarea>
 			</div>
-			<div class="col-md-1 gen_announce_importance"> <p> &hearts; </p> </div>
-			<div class="col-md-11 comment_box">
-				<input class="announce_comment" type="text" placeholder="   Comment...">
+			<div class="col-md-1 gen_announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
 			</div>
-		</div>
-		<div class="col-md-3 poster_id">
-				<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
-				<div class="poster_name"> Stella Pickard </div>
-				<div class="post_time"> 12 March 2016 &bull; 14h23</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3 gen_announcement_bubble">
-			<div class="col-md-12"> 
-				<h4 class="announce_subject"> Announcement Subject</h4>
-				<textarea class="announce_text"> </textarea>
-			</div>
-			<div class="col-md-1 gen_announce_importance"> <p> &hearts; </p> </div>
 			<div class="col-md-11 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment...">
 			</div>
