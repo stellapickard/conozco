@@ -5,11 +5,87 @@
 /*OFF-WHITE - #f4ece1
 PINK - #cc007a
 BLACK - #000000
-GREY - #575757*/
+GREY - #575757
+MODAL PINK - #db4ca1*/
+
 
 body {
-	width: 100%;
+	padding: 0;
+	margin: 0;
+	background: black;
+	font-family: 'Comfortaa', cursive;
 }
+
+.container {
+	padding: 0;
+	margin: 0;
+}
+
+/*Navbar*/
+
+.navbar {
+	background-image: url("./images/chalkboard.jpg");
+	background-width: 100%;
+	width: 100%;
+	position: fixed;
+	border: 2px solid pink;
+}
+
+.characterImg {
+	margin-left: 10px;
+	width: 150px;
+}
+
+.peoplemap {
+	
+	border: 2px solid antiquewhite;
+	float: right;
+	margin-top: 35px;
+	height: 70px;
+	width: 70px;
+	background: lightslategrey;
+	border-radius: 2px;
+}
+
+.peoplemaptext {
+	color: antiquewhite;
+	padding: auto;
+}
+
+.navtext {
+	font-size: 1.4em;
+	padding-left: 6px;
+	padding-right: 6px;
+	border-radius: 2px;
+	margin-top: -2px;
+	border: 2px solid antiquewhite;
+	background: grey;
+	color: antiquewhite;
+}
+
+.profilepic {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 100px;
+	width: 100px;
+	border: 2px solid pink;
+	border-radius: 100%;
+	background: grey;
+	float: right;
+}
+
+.drpdwn {
+	text-align: right;
+	background: grey;
+	opacity: .9;	
+
+}
+
+.navlink {
+	color: antiquewhite;
+	font-size: 1.2em;
+}
+
 
 /* LOGIN PAGE STYLING */
 
@@ -59,8 +135,359 @@ body {
 
 /* PROFILE PAGE STYLING */
 
-.employee_pic {
-	height: 200px;
-	width: 200px;
-	border: solid 3px #cc007a;
+/* FOR SOME REASON THIS PIC_COL CLASS IS NOT PULLING THROUGH, DON'T KNOW WHY. NEED TO FIGURE OUT */
+.profile_body {
+	background-image: url('./images/chalkboard1.jpg');
 }
+
+.profile_header {
+	height: 200px;
+}
+
+.pic_col {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.employee_pic {
+	height: 320px;
+	width: 320px;
+	border: 6px solid #cc007a;
+	margin: 15px;
+	background-image: url('./images/linkedin.jpg');
+	background-repeat: none;
+	background-size: 320px, 320px;
+	position: relative;
+	
+	/*z-index: -1;*/ 	
+}
+
+#default_display {
+	display: block;
+}
+
+/* HOVER ON PROFILE */
+.profile_hover_replacement {
+	text-align: center;
+	background-color: #f4ece1;
+	height: 100%;
+	width: 100%;
+	border: 6px solid #cc007a;
+	margin: auto;
+	background-size: 320px, 320px;
+	/*transition: 0.3;*/
+	position: absolute;
+	opacity: 0.8;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	
+	/*z-index: 1; */
+}
+
+/*#hover_display {
+	display: none;
+}*/
+
+.profile_name {
+	font-family: Lobster;
+	font-size: 24px;
+	color: #cc007a;
+	padding-top: 45px;
+}
+
+.profile_details:first-of-type {
+	padding-top: 50px;
+}
+
+.profile_details {
+	line-height: 2px;
+	font-weight: bold;
+	font-family: Comfortaa;
+	font-size: 18px;
+}
+
+/* WORK FEED STYLING */
+
+.navbarstuff {
+	height: 100px;
+	color: #f4ece1;
+}
+
+.feed_work_body {
+	background-image: url('./images/chalkboard1.jpg');
+	width: 100%;
+	height: 830px;
+}
+
+.feed_gen_body {
+	background-image: url('./images/chalkboard1.jpg');
+	width: 100%;
+	height: 830px;
+}
+
+/* STYLING ON WORK ANNOUNCEMENT BUBBLE*/
+
+.workfeed_scroll {
+	overflow: scroll;
+	height: 710px;
+	width: 100%;
+	position: fixed;
+}
+
+.genfeed_scroll {
+	overflow: scroll;
+	height: 710px;
+	width: 100%;
+	position: fixed;
+}
+
+.announce_modal {
+	width: 100%;
+	border-radius: 3px;
+}
+
+
+.m_title {
+	font-family: Comfortaa;
+	font-weight: bold;
+}
+
+.m_header {
+	background-color: #db4ca1;
+}
+
+.m_footer {
+	background-color: #D3D3D3;
+}
+
+.announcement_bubble {
+	border: 2px solid #f4ece1;
+	border-radius: 4px;
+	background-color: #f4ece1;
+	height: 160px;
+	width: 500px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	opacity: 0.9;
+}
+
+.add_announce {
+	color: #cc007a;
+	font-size: 60px;
+	text-align: center;
+	text-shadow: 1px 1px #f4ece1;
+	padding-bottom: 20px;
+}
+
+.gen_announcement_bubble {
+	border: 2px solid #cc007a;
+	border-radius: 4px;
+	background-color: #cc007a;
+	height: 160px;
+	width: 500px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	opacity: 0.9;
+	z-index: -1;
+}
+
+.announce_subject {
+	padding-left: 10px;
+	color: #cc007a;
+
+}
+
+.gen_announce_subject {
+	padding-left: 10px;
+	color: #f4ece1;
+}
+
+.announce_text {
+	width: 100%;
+	border: solid 1px #f4ece1;
+}
+
+.announce_importance {
+	font-size: 24px;
+	color: #cc007a;
+	text-align: center;
+}
+
+.gen_announce_importance {
+	font-size: 24px;
+	color: #000000;
+	text-align: center;
+}
+
+.comment_box {
+	padding-top: 7px;
+}
+
+.announce_comment {
+	height: 35px;
+	border-radius: 3px;
+	border: 1px solid white;
+	width: 100%;
+}
+
+.importance_score {
+	font-size: 14px;
+	color: #000000;
+}
+
+.gen_toggle {
+	height: 300px;
+	width: 35px;
+	background-color: #cc007a;
+	color: #f4ece1 ; 
+	text-align: center;
+	font-family: Comfortaa; 
+	left: 0;
+	top: 250px;
+	border: 1px solid #cc007a;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+	position: fixed;
+}
+
+.vertical_text {
+	-moz-transform: rotate(270deg);  /* FF3.5+ */
+    -o-transform: rotate(270deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(-90deg);  /* Saf3.1+, Chrome */
+    -moz-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    -webkit-transform-origin: 100% 100%;
+}
+
+.vertical2 {
+    position: fixed;
+    background-color: #cc007a;
+    padding: 10px;
+    border-radius: 0 0 7px 7px;
+    left:-176px;
+    top:100px;
+    font-family: Comfortaa;
+    font-size: 13px;
+    color: #f4ece1;
+    -moz-transform: rotate(270deg);  /* FF3.5+ */
+    -o-transform: rotate(270deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(-90deg);  /* Saf3.1+, Chrome */
+    -moz-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    -webkit-transform-origin: 100% 100%;
+} 
+
+.gen_announce_vertical {
+	position: fixed;
+    background-color: #cc007a;
+    padding: 10px;
+    border-radius: 0 0 7px 7px;
+    left:-200px;
+    top:100px;
+    font-family: Comfortaa;
+    font-size: 13px;
+    color: #f4ece1;
+    -moz-transform: rotate(270deg);  /* FF3.5+ */
+    -o-transform: rotate(270deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(-90deg);  /* Saf3.1+, Chrome */
+    -moz-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    -webkit-transform-origin: 100% 100%;
+}
+
+
+/*STYLING ON DETAILS OF PERSON POSTING ANNOUNCEMENT ON FEED */
+.poster_id {
+	padding-top: 30px;
+	width: 100%;
+	color: #f4ece1;
+	text-align: center;
+}
+
+
+.poster_pic {
+	height: 75px;
+	width: 75px;
+	border: solid 4px #cc007a;
+	border-radius: 100%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.posterimg {
+	height: 100%;
+	width: 100%;
+}
+
+.poster_name {
+	font-family: Lobster;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.post_time {
+	font-family: Comfortaa;
+
+}
+
+/* ADMIN PAGE STYLING */
+
+.admin_body {
+	background-image: url('./images/chalkboard1.jpg');
+	background-repeat: cover; 
+	width: 100%;
+	/*THIS IS NOT THE  MOST EFFICIENT WAY TO BACKGROUND TO FIT PAGE*/
+	height: 828px;
+	margin: 0;
+	padding: 0;
+	color: #f4ece1;
+}
+
+.admin_header {
+	font-family: Lobster;
+	font-size: 55px;
+	text-shadow: #f4ece1 2px 2px;
+	color: #cc007a;
+	padding-top: 30px;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.form_head {
+	font-family: Comfortaa; 
+	color: #cc007a;
+}
+
+.form_headings {
+	font-family: Comfortaa; 
+	color: #f4ece1;
+	font-size: 18px;
+}
+
+.emp_input {
+	width: 300px;
+}
+
+.employee_happiness {
+	font-family: Comfortaa; 
+	font-size: 24px;
+	color: #f4ece1;
+}
+
+.happiness_score {
+	font-family: Lobster;
+	font-size: 35px;
+	color: #cc007a;
+	text-shadow: #f4ece1 2px 2px;
+}
+
+.happiness_div {
+	padding-top: 15px;
+}
+
+#img_upload {
+	color: #f4ece1;
+}
+
+
