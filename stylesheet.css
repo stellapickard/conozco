@@ -18,6 +18,11 @@ body {
 	font-family: 'Comfortaa', cursive;
 }
 
+.container-fluid {
+	padding: 0;
+	margin: 0;
+}
+
 .pageview {
 	margin-top: 190px;
 }
