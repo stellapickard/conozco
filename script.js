@@ -1,4 +1,4 @@
-var app = angular.module("ConozcoApp", ["ngRoute"]);
+var app = angular.module("ConozcoApp", ["ngRoute","firebase"]);
 
 // ROUTE CONFIGURATION
 
@@ -34,12 +34,32 @@ app.config(function($routeProvider){
 
 // LOGIN_CONTROLLER
 
-app.controller('login_controller', function($scope, $http){
+app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
+  function($scope, $firebaseAuth, $location) {
+    $scope.authObj = $firebaseAuth();
+
+ //    //checking if user is signed in or not
+	// $scope.authObj.$onAuthStateChanged(function(firebaseUser){
+	// 	if (firebaseUser){
+	// 		console.log('Signed in as = '+firebaseUser.uid);
+	// 		//$location.path("/profile");
+	// 	}
+	// });
+
+    $scope.authObj.$signInWithPopup("google").then(function(result) {
+	  	console.log("Signed in as:", result.user.uid);
+	  	$location.path("/profile");
+	}).catch(function(error) {
+	  	console.error("Authentication failed:", error);
+	});
+  }
+]);
+
+	
 
 
 
 
-});
 
 // PROFILE_CONTROLLER
 

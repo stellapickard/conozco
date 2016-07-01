@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Get Smarter</title>
+	<!-- <meta name="google-signin-client_id" content="597086109018-kppgcgrp5g6ssk2cj3vnk1ls2pa29hrr.apps.googleusercontent.com"> -->
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 	<!-- Bootstrap -->
@@ -12,25 +13,29 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
 	<!-- Firebase -->
-	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+	<!-- <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+  	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script> -->
 	<!-- Angularfire -->
 	<script src="https://cdn.firebase.com/libs/angularfire/2.0.0/angularfire.min.js"></script>
+	Initialize Firebase
 	<script>
-	// Initialize Firebase
-	var config = {
-		apiKey: "AIzaSyAbdI6wkXPt3wC-mU4XJV3-wO5kLlrNUCk",
-		authDomain: "finalprojectmcp.firebaseapp.com",
-		databaseURL: "https://finalprojectmcp.firebaseio.com",
-		storageBucket: "finalprojectmcp.appspot.com",
-	};
-	firebase.initializeApp(config);
+  	var config = {
+    	apiKey: "AIzaSyBT1BopiYEPs2ztZxep9Q8fu_IxPiJd0j0",
+    	authDomain: "conozco-1358.firebaseapp.com",
+    	databaseURL: "https://conozco-1358.firebaseio.com",
+    	storageBucket: "conozco-1358.appspot.com",
+  	};
+  	firebase.initializeApp(config);
 	</script>
-<!-- Ajax -->
+<!-- Ajax
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <!-- Script and Stylesheet -->
 	<script src="./script.js"></script>
 	<link rel="stylesheet" href="./stylesheet.css">
 </head>
+
+
 <body ng-app="ConozcoApp">
 	<div class="container-fluid">
 			<div ng-view></div>
