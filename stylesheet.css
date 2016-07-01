@@ -22,6 +22,13 @@ body {
   	background-size: cover;
 }
 
+a {
+	color: #f4ece1;
+}
+
+a:hover {
+	color: #f4ece1;
+}
 .pageview {
 	margin-top: 190px;
 }
@@ -401,8 +408,8 @@ body {
 
 /*STYLING ON DETAILS OF PERSON POSTING ANNOUNCEMENT ON FEED */
 .poster_id {
-	padding-top: 30px;
-	width: 100%;
+	padding-top: 10px;
+	max-width: 150px;
 	color: #f4ece1;
 	text-align: center;
 }
