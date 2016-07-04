@@ -53,7 +53,7 @@
  		<!-- MODAL STUFF --> 
  		<!-- <div class="container"> -->
  			<!-- Trigger the modal with a button -->
- 			<div class="add_announce" data-toggle="modal" data-target="#myModal"> <span class="plus"> + </span></div>
+ 			<div class="add_announce pageview" data-toggle="modal" data-target="#myModal"> <span class="plus"> + </span></div>
 
  			<!-- Modal -->
  			<div class="modal fade" id="myModal" role="dialog">
@@ -66,10 +66,11 @@
  							<h4 class="modal-title m_title"> Add Announcement</h4>
  						</div>
  						<div class="modal-body">
- 							<input class="announce_modal" type="text">
+ 							<input class="announce_modal" type="text" placeholder="Title" ng-model="newAncmnt.title">
+ 							<input class="announce_modal" type="text" placeholder="Text" ng-model="newAncmnt.text">
  						</div>
  						<div class="modal-footer m_footer">
- 							<button type="button" class="publish_btn btn btn-default" data-dismiss="modal">Publish</button>
+ 							<button type="button" class="publish_btn btn btn-default" data-dismiss="modal" ng-click="postAncmnt()">Publish</button>
  						</div>
  					</div>
 
@@ -80,15 +81,15 @@
  		<!-- END OF MODAL STUFF --> 
  		<!-- <div class="container-fluid genfeed_scroll">	 -->
 
- 			<div class="row pageview">
+ 			<div class="row" ng-repeat="feed in announcements" >
 
 
  				<!-- END OF TOGGLE --> 
  				<div class="col-md-6 col-md-offset-4 gen_announcement_bubble">
 
  					<div class="col-md-12"> 
- 						<h4 class="gen_announce_subject"> Announcement Subject</h4>
- 						<textarea class="announce_text"> </textarea>
+ 						<h4 class="gen_announce_subject"> {{feed.title}} </h4>
+ 						<textarea class="announce_text"> {{feed.text}}</textarea>
  					</div>
  					<div class="col-md-1 gen_announce_importance"> 
  						<span class="glyphicon glyphicon-education"></span>
@@ -99,7 +100,7 @@
  					</div>
  				</div>
 
- 				<div class="col-md-3 poster_id">
+ 				<div class="col-md-2 poster_id">
  					<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
  					<div class="poster_name"> Stella Pickard </div>
  					<div class="post_time"> 12 March 2016 &bull; 14h23</div>
@@ -107,7 +108,7 @@
 
  			</div>
 
- 			<div class="row">
+ 			<!-- <div class="row">
  				<div class="col-md-6 col-md-offset-4 gen_announcement_bubble">
  					<div class="col-md-12"> 
  						<h4 class="gen_announce_subject"> Announcement Subject</h4>
@@ -232,9 +233,8 @@
  					<div class="post_time"> 12 March 2016 &bull; 14h23</div>
  				</div>
  			</div>
-
+-->
  		</div>
 
  	</div>
- </div>
 
