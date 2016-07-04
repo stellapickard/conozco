@@ -285,6 +285,7 @@ a:hover {
 	color: #cc007a;
 	font-size: 60px;
 	text-align: center;
+	
 	text-shadow: 1px 1px #f4ece1;
 	padding-bottom: 20px;
 }
@@ -375,7 +376,7 @@ a:hover {
     padding: 10px;
     border-radius: 0 0 7px 7px;
     left:-176px;
-    top:100px;
+    top:300px;
     font-family: Comfortaa;
     font-size: 13px;
     color: #f4ece1;
@@ -393,7 +394,7 @@ a:hover {
     padding: 10px;
     border-radius: 0 0 7px 7px;
     left:-200px;
-    top:100px;
+    top:300px;
     font-family: Comfortaa;
     font-size: 13px;
     color: #f4ece1;

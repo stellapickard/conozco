@@ -51,20 +51,21 @@
 
 		<!-- <div class="container" id="main"> -->
 			<!-- Trigger the modal with a button -->
-			<div class="add_announce" data-toggle="modal" data-target="#myModal"> <span class="plus"> + </span></div>
+			<div class="add_announce pageview" data-toggle="modal" data-target="#myModal"> <span class="plus"> + </span></div>
 
 			<!-- Modal -->
-			<div class="modal fade pageview" id="myModal" role="dialog">
+			<div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog">
 
 					<!-- Modal content-->
-					<div class="modal-content">
+					<div class="modal-content pageview">
 						<div class="modal-header m_header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
 							<h4 class="modal-title m_title"> Add Announcement</h4>
 						</div>
 						<div class="modal-body">
-							<input class="announce_modal" type="text">
+							<input class="announce_modal" type="text" placeholder="Title" ng-model="submit_title">
+ 							<input class="announce_modal" type="text" placeholder="Text" ng-model="submit_body">
 						</div>
 						<div class="modal-footer m_footer">
 							<button type="button" class="publish_btn btn btn-default" data-dismiss="modal">Publish</button>
@@ -79,7 +80,7 @@
 		<!-- MICHAEL, DON'T ADD CODE BELOW THIS FOR NOW, PLEASE -->
 	<!-- 	<div class="container-fluid workfeed_scroll">	 -->
 
-			<div class="row pageview">
+			<div class="row ">
 
 				<div class="col-md-6 col-md-offset-4 announcement_bubble">
 					<div class="col-md-12"> 
