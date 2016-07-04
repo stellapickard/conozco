@@ -130,9 +130,23 @@ app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, 
 
 // ADMIN_CONTROLLER
 
-app.controller('admin_controller', function($scope, $http){
+app.controller('admin_controller', function($scope, $http, $firebaseArray){
+	
 
-	function imgUploadFunction(){
+     var employeeRef = firebase.database().ref().child("employees");
+ $scope.employee = $firebaseArray(employeeRef);
+
+$scope.newEmployee = {};
+	
+		$scope.addEmployee = function (){
+			$scope.employee.$add($scope.newEmployee);
+		}
+
+// END OF CONTROLLER - LEAVE IMAGE UPLOAD OUT OF THE CONTROLLER
+
+   });
+
+function imgUploadFunction(){
 		var x = document.getElementById("photo_upload");
 		var txt = "";
 		if ('files' in x) {
@@ -162,6 +176,3 @@ app.controller('admin_controller', function($scope, $http){
        }
        document.getElementById("img_upload").innerHTML = txt;
      }
-
-
-   });

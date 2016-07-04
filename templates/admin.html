@@ -9,11 +9,11 @@
 					<h2 class="form_head"> Onboard new employee </h2>
 					<form>
 						<h5 class="form_headings"> Employee's Name & Surname </h5>
-						<input class="emp_input"  type="text">
+						<input style="color: black" class="emp_input"  type="text" ng-model="newEmployee.name">
 						<br> 
 
 						<h5 class="form_headings"> Department </h5>
-						<select class="emp_input selectpicker">
+						<select class="emp_input selectpicker" ng-model="employee.department">
 							<option> select department</option>
 							<option> Academic Staff </option>
 							<option> Business Development </option>
@@ -35,15 +35,15 @@
 						<br> 
 
 						<h5 class="form_headings"> Role </h5>
-						<input class="emp_input" type="text">
+						<input style="color: black" class="emp_input" type="text" ng-model="newEmployee.role">
 						<br> 
 
 						<h5 class="form_headings"> Birthday </h5>
-						<input class="emp_input"  type="text" placeholder="i.e. 23 March">
+						<input style="color: black" class="emp_input"  type="date" placeholder="i.e. 23 March" ng-model="newEmployee.birthday">
 						<br> 
 
 						<h5 class="form_headings"> Interest </h5>
-						<input class="emp_input"  type="text">
+						<input style="color: black" class="emp_input"  type="text" ng-model="newEmployee.interest">
 						<br> 
 						<br>
 
@@ -56,6 +56,7 @@
 
 						<!-- end of upload image code --> 					
 					</form>
+					<button style="color: black" ng-click="addEmployee()"> Submit </button>
 				</div>
 				<div class="col-md-6 checkout_user">
 					<div class="row">
