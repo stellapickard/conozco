@@ -86,12 +86,20 @@
 						<h4 class="announce_subject"> {{feed.title}} </h4>
 						<textarea class="announce_text"> {{feed.text}} </textarea>
 					</div>
+					<div class="col-md-12"> 
+						<ul>
+							<li ng-repeat="workComment in workComments" style="color:black">{{workComment.comment}} </li> 
+						</ul>
+					</div>
 					<div class="col-md-1 announce_importance"> 
 						<span class="glyphicon glyphicon-education"> </span> 
 						<p class="importance_score"> 223 </p>
 					</div>
-					<div class="col-md-11 comment_box">
-						<input class="announce_comment" type="text" placeholder="   Comment..." ng-model="feedComment">
+					<div class="col-md-9 comment_box">
+						<input class="announce_comment" type="text" placeholder="   Comment..." ng-model="newWorkComment.comment">
+					</div>
+					<div class="col-md-2">
+						<button ng-click="postWorkComment()"> Post comment</button>
 					</div>
 				</div>
 				<div class="col-md-3 poster_id">
@@ -100,16 +108,18 @@
 					<div class="post_time"> 12 March 2016 &bull; 14h23</div>
 				</div>
 			</div>
+					<!-- <div class="col-md-2">
+						<button ng-click="postWorkComment()"> Post comment</button>
+					</div> -->
 
-<!-- ng-repeat="comment in workComments"
- -->			<div class="row" >
+ 			<div class="row" >
 				<div class="col-md-6 col-md-offset-4 announcement_bubble">
 					<div class="col-md-12"> 
 						<h4 class="announce_subject"> Announcement Subject</h4>
 						<textarea class="announce_text"> </textarea>
 					</div>
 					<div class="col-md-12"> 
-						<p ng-repeat="comment in workComments" style="color:black"> this is where the comment goes</p> 
+						<p ng-model="workComments" style="color:black"> this is where the comment goes</p> 
 					</div>
 					<div class="col-md-1 announce_importance"> 
 						<span class="glyphicon glyphicon-education"> </span> 
