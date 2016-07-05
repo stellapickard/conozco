@@ -50,11 +50,31 @@
 						<!-- upload image code--> 
 
 						<label class="btn btn-file login_button img_upload">
-							Upload image of Employee <input onchange="imgUploadFunction()" id="photo_upload" type="file" style="display: none;">
+							Upload image of Employee 
+							<input onchange="imgUploadFunction()" id="photo_upload" type="file" style="display: none;">
 						</label>
 						<p id="img_upload"></p>
 
-						<!-- end of upload image code --> 					
+						<!-- end of upload image code --> 	
+
+							<!-- CODEPEN EXAMPLE --> 
+										<form ng-submit="uploadFile()">
+											<input type="file" name="file" class="inputimg" id="nameImg" accept="image/*">
+											<br />
+											<span class="input-group-btn">
+												<button  type="submit" class="btn btn-block">Upload Image
+												</button>
+											</span>
+										</form>
+										
+										<div ng-repeat="img in imgs | toArray | orderBy: '-date'" class="col-xs-12 col-sm-6 col-md-3">
+											<img ng-src="{{img.base64}}">
+											<a class="btn btn-danger btn-block" ng-click="deleteimg(img.$id)">Delete</a>
+										</div>
+
+						<!-- END OF CODEPEN EXAMPLE --> 
+
+
 					</form>
 					<button style="color: black" ng-click="addEmployee()"> Submit </button>
 				</div>
