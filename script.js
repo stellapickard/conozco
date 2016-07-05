@@ -118,8 +118,12 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 
 	var commentRef = firebase.database().ref().child("work_comments");
 	$scope.workComments = $firebaseArray(commentRef);
+	$scope.newWorkComment = {};
+	
+
 
 	$scope.postWorkComment = function (){
+		console.log('adding comment = '+$scope.newWorkComment);
 		$scope.workComments.$add($scope.newWorkComment);
 	};
 
