@@ -274,7 +274,7 @@ a:hover {
 	border: 2px solid #f4ece1;
 	border-radius: 4px;
 	background-color: #f4ece1;
-	height: 160px;
+	min-height: 160px;
 	width: 500px;
 	margin-top: 10px;
 	margin-bottom: 10px;

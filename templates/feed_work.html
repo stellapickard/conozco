@@ -64,11 +64,11 @@
 							<h4 class="modal-title m_title"> Add Announcement</h4>
 						</div>
 						<div class="modal-body">
-							<input class="announce_modal" type="text" placeholder="Title" ng-model="submit_title">
- 							<input class="announce_modal" type="text" placeholder="Text" ng-model="submit_body">
+							<input class="announce_modal" type="text" placeholder="Title" ng-model="newWorkAnn.title">
+ 							<input class="announce_modal" type="text" placeholder="Text" ng-model="newWorkAnn.text">
 						</div>
 						<div class="modal-footer m_footer">
-							<button type="button" class="publish_btn btn btn-default" data-dismiss="modal">Publish</button>
+							<button type="button" ng-click="postWorkAnn()" class="publish_btn btn btn-default" data-dismiss="modal">Publish</button>
 						</div>
 					</div>
 
@@ -77,22 +77,21 @@
 
 		</div>
 
-		<!-- MICHAEL, DON'T ADD CODE BELOW THIS FOR NOW, PLEASE -->
 	<!-- 	<div class="container-fluid workfeed_scroll">	 -->
 
-			<div class="row ">
+			<div class="row" ng-repeat="feed in announcements">
 
 				<div class="col-md-6 col-md-offset-4 announcement_bubble">
 					<div class="col-md-12"> 
-						<h4 class="announce_subject"> Announcement Subject</h4>
-						<textarea class="announce_text"> </textarea>
+						<h4 class="announce_subject"> {{feed.title}} </h4>
+						<textarea class="announce_text"> {{feed.text}} </textarea>
 					</div>
 					<div class="col-md-1 announce_importance"> 
 						<span class="glyphicon glyphicon-education"> </span> 
 						<p class="importance_score"> 223 </p>
 					</div>
 					<div class="col-md-11 comment_box">
-						<input class="announce_comment" type="text" placeholder="   Comment...">
+						<input class="announce_comment" type="text" placeholder="   Comment..." ng-model="feedComment">
 					</div>
 				</div>
 				<div class="col-md-3 poster_id">
@@ -102,6 +101,87 @@
 				</div>
 			</div>
 
+<!-- ng-repeat="comment in workComments"
+ -->			<div class="row" >
+				<div class="col-md-6 col-md-offset-4 announcement_bubble">
+					<div class="col-md-12"> 
+						<h4 class="announce_subject"> Announcement Subject</h4>
+						<textarea class="announce_text"> </textarea>
+					</div>
+					<div class="col-md-12"> 
+						<p ng-repeat="comment in workComments" style="color:black"> this is where the comment goes</p> 
+					</div>
+					<div class="col-md-1 announce_importance"> 
+						<span class="glyphicon glyphicon-education"> </span> 
+						<p class="importance_score"> 223 </p>
+					</div>
+					<div class="col-md-9 comment_box">
+						<input class="announce_comment" type="text" placeholder="   Comment...">
+					</div>
+					<div class="col-md-2">
+						<button ng-click="postWorkComment()"> Post comment</button>
+					</div>
+				</div>
+				<div class="col-md-3 poster_id">
+					<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
+					<div class="poster_name"> Stella Pickard </div>
+					<div class="post_time"> 12 March 2016 &bull; 14h23</div>
+				</div>
+			</div>
+
+			<div class="row" >
+				<div class="col-md-6 col-md-offset-4 announcement_bubble">
+					<div class="col-md-12"> 
+						<h4 class="announce_subject"> Announcement Subject</h4>
+						<textarea class="announce_text"> </textarea>
+					</div>
+					<div class="col-md-12"> 
+						<p style="color:black"> this is where the comment goes</p> 
+					</div>
+					<div class="col-md-1 announce_importance"> 
+						<span class="glyphicon glyphicon-education"> </span> 
+						<p class="importance_score"> 223 </p>
+					</div>
+					<div class="col-md-9 comment_box">
+						<input class="announce_comment" type="text" placeholder="   Comment...">
+					</div>
+					<div class="col-md-2">
+						<button ng-click="postWorkComment()"> Post comment</button>
+					</div>
+				</div>
+				<div class="col-md-3 poster_id">
+					<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
+					<div class="poster_name"> Stella Pickard </div>
+					<div class="post_time"> 12 March 2016 &bull; 14h23</div>
+				</div>
+			</div>
+
+			<div class="row" >
+				<div class="col-md-6 col-md-offset-4 announcement_bubble">
+					<div class="col-md-12"> 
+						<h4 class="announce_subject"> Announcement Subject</h4>
+						<textarea class="announce_text"> </textarea>
+					</div>
+					<div class="col-md-12"> 
+						<p style="color:black"> this is where the comment goes</p> 
+					</div>
+					<div class="col-md-1 announce_importance"> 
+						<span class="glyphicon glyphicon-education"> </span> 
+						<p class="importance_score"> 223 </p>
+					</div>
+					<div class="col-md-9 comment_box">
+						<input class="announce_comment" type="text" placeholder="   Comment...">
+					</div>
+					<div class="col-md-2">
+						<button ng-click="postWorkComment()"> Post comment</button>
+					</div>
+				</div>
+				<div class="col-md-3 poster_id">
+					<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
+					<div class="poster_name"> Stella Pickard </div>
+					<div class="post_time"> 12 March 2016 &bull; 14h23</div>
+				</div>
+			</div>
 
 			<div class="row">
 				<div class="col-md-6 col-md-offset-4 announcement_bubble">
@@ -113,29 +193,11 @@
 						<span class="glyphicon glyphicon-education"> </span> 
 						<p class="importance_score"> 223 </p>
 					</div>
-					<div class="col-md-11 comment_box">
+					<div class="col-md-9 comment_box">
 						<input class="announce_comment" type="text" placeholder="   Comment...">
 					</div>
-				</div>
-				<div class="col-md-3 poster_id">
-					<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
-					<div class="poster_name"> Stella Pickard </div>
-					<div class="post_time"> 12 March 2016 &bull; 14h23</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-6 col-md-offset-4 announcement_bubble">
-					<div class="col-md-12"> 
-						<h4 class="announce_subject"> Announcement Subject</h4>
-						<textarea class="announce_text"> </textarea>
-					</div>
-					<div class="col-md-1 announce_importance"> 
-						<span class="glyphicon glyphicon-education"> </span> 
-						<p class="importance_score"> 223 </p>
-					</div>
-					<div class="col-md-11 comment_box">
-						<input class="announce_comment" type="text" placeholder="   Comment...">
+					<div class="col-md-2">
+						<button ng-click="postWorkComment()"> Post comment</button>
 					</div>
 				</div>
 				<div class="col-md-3 poster_id">
