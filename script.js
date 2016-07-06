@@ -32,25 +32,11 @@ app.config(function($routeProvider){
 
 });
 
-// app.filter('reverse', function() {
-//   return function(items) {
-//     return items.slice().reverse();
-//   };
-// });
-
 // LOGIN_CONTROLLER
 
 app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
 	function($scope, $firebaseAuth, $location) {
 		$scope.authObj = $firebaseAuth();
-
- //    //checking if user is signed in or not
-	// $scope.authObj.$onAuthStateChanged(function(firebaseUser){
-	// 	if (firebaseUser){
-	// 		console.log('Signed in as = '+firebaseUser.uid);
-	// 		//$location.path("/profile");
-	// 	}
-	// });
 
 	$scope.authObj.$signInWithPopup("google").then(function(result) {
 		console.log("Signed in as:", result.user.uid);
@@ -71,15 +57,8 @@ app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
 
 app.controller('profile_controller', function($scope, $http){
 
-	// WEB PAGE AUTO SIZE FUNCTION
-	// function autoResizeDiv()
-	//         {
-	//             document.getElementById('#main').css.height = window.innerHeight +'px';
-	//         }
-	//         window.onresize = autoResizeDiv;
-	//         autoResizeDiv();
 
-	// PROFILE PAGE SWAP OUT FUNCTION
+	// PROFILE IMAGE & PEDIGREE SWAP OUT FUNCTION
 
 	$('.default_display').mouseover(function(){
 		$(this).find('.hover_display').css('display','block');
@@ -99,7 +78,7 @@ app.controller('profile_controller', function($scope, $http){
 		}
 	});
 
-// closing tag of on ready function
+	// CLOSING TAG OF ONREADY FUNCTION
 });
 
 
@@ -163,57 +142,60 @@ $scope.newEmployee = {};
 
 // START OF IMAGE UPLOAD CODE
 
+// STELLA TRYING TO FIGURE OUT HOW TO UPLOAD IMAGE TO DATABASE BELOW - WORK IN PROGRESS
+
 // var img2fire = angular.module('img2fire', ['firebase', 'angular.filter']);
 
 // img2fire.controller("base64Ctrl", function($scope, $firebaseArray) {
   
-  var ref = new Firebase("https://base64images.firebaseio.com/");
+	var ref = new Firebase("https://base64images.firebaseio.com/");
 
-  var img = new Firebase("https://base64images.firebaseio.com/images");
-  $scope.imgs = $firebaseArray(img);
+	var img = new Firebase("https://base64images.firebaseio.com/images");
+	$scope.imgs = $firebaseArray(img);
 
-  var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
-  $scope.uploadFile = function() {
-    var sFileName = $("#nameImg").val();
-    if (sFileName.length > 0) {
-      var blnValid = false;
-      for (var j = 0; j < _validFileExtensions.length; j++) {
-        var sCurExtension = _validFileExtensions[j];
-        if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
-          blnValid = true;
-          var filesSelected = document.getElementById("nameImg").files;
-          if (filesSelected.length > 0) {
-            var fileToLoad = filesSelected[0];
+	var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+	$scope.uploadFile = function() {
+		var sFileName = $("#nameImg").val();
+		if (sFileName.length > 0) {
+			var blnValid = false;
+			for (var j = 0; j < _validFileExtensions.length; j++) {
+				var sCurExtension = _validFileExtensions[j];
+				if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+					blnValid = true;
+					var filesSelected = document.getElementById("nameImg").files;
+					if (filesSelected.length > 0) {
+						var fileToLoad = filesSelected[0];
 
-            var fileReader = new FileReader();
+						var fileReader = new FileReader();
 
-            fileReader.onload = function(fileLoadedEvent) {
-              var textAreaFileContents = document.getElementById(
-                "textAreaFileContents"
-              );
+						fileReader.onload = function(fileLoadedEvent) {
+							var textAreaFileContents = document.getElementById(
+								"textAreaFileContents"
+								);
 
 
-              $scope.imgs.$add({
-                date: Firebase.ServerValue.TIMESTAMP,
-                base64: fileLoadedEvent.target.result
-              });
-            };
+							$scope.imgs.$add({
+								date: Firebase.ServerValue.TIMESTAMP,
+								base64: fileLoadedEvent.target.result
+							});
+						};
 
-            fileReader.readAsDataURL(fileToLoad);
-          }
-          break;
-        }
-      }
+						fileReader.readAsDataURL(fileToLoad);
+					}
+					break;
+				}
+			}
 
-      if (!blnValid) {
-        alert('File is not valid');
-        return false;
-      }
-    }
+			if (!blnValid) {
+				alert('File is not valid');
+				return false;
+			}
+		}
 
-    return true;
-  }
+		return true;
+	}
 
+  // NOT SURE IF THIS DELETE IMAGE FUNCTIONALITY WILL BE NECESSARY
   // $scope.deleteimg = function(imgid) {
   //   var r = confirm("Do you want to remove this image ?");
   //   if (r == true) {
@@ -228,12 +210,7 @@ $scope.newEmployee = {};
   // }
 
 
-
-
-
-
-
-// END OF CONTROLLER - LEAVE IMAGE UPLOAD OUT OF THE CONTROLLER
+// END OF CONTROLLER - LEAVE IMAGE UPLOAD OUTSIDE OF THE CONTROLLER
 
    });
 

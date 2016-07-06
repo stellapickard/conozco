@@ -33,7 +33,7 @@ a:hover {
 	margin-top: 190px;
 }
 
-/*Navbar*/
+/*NAVBAR STYLING*/
 
 .navbar {
 	background-image: url("./images/chalkboard.jpg");
@@ -102,10 +102,7 @@ a:hover {
 
 .login_body {
 	text-align: center; 
-	
 	width: 100%;
-	/*THIS IS NOT THE  MOST EFFICIENT WAY TO BACKGROUND TO FIT PAGE*/
-
 	margin: 0;
 	padding: 0;
 }
@@ -124,7 +121,6 @@ a:hover {
 	background-color: #cc007a;
 	border: solid 1px #cc007a;
 	border-radius: 3px;
-	font-family: Comfortaa;
 	padding: 10px;
 	opacity: 0.7;
 }
@@ -145,12 +141,6 @@ a:hover {
 
 /* PROFILE PAGE STYLING */
 
-/* FOR SOME REASON THIS PIC_COL CLASS IS NOT PULLING THROUGH, DON'T KNOW WHY. NEED TO FIGURE OUT */
-.profile_body {
-	/*background-image: url('./images/chalkboard1.jpg') repeat;*/
-
-}
-
 .profile_header {
 	height: 200px;
 }
@@ -168,9 +158,7 @@ a:hover {
 	background-image: url('./images/linkedin.jpg');
 	background-repeat: none;
 	background-size: 320px, 320px;
-	position: relative;
-	
-	/*z-index: -1;*/ 	
+	position: relative; 	
 }
 
 #default_display {
@@ -186,19 +174,12 @@ a:hover {
 	border: 6px solid #cc007a;
 	margin: 0;
 	background-size: 320px, 320px;
-	/*transition: 0.3;*/
 	position: absolute;
 	opacity: 0.8;
 	top: 0;
 	left: 0;
 	cursor: pointer;
-	
-	/*z-index: 1; */
 }
-
-/*#hover_display {
-	display: none;
-}*/
 
 .profile_name {
 	font-family: Lobster;
@@ -214,7 +195,6 @@ a:hover {
 .profile_details {
 	line-height: 2px;
 	font-weight: bold;
-	font-family: Comfortaa;
 	font-size: 18px;
 }
 
@@ -352,7 +332,6 @@ a:hover {
 	background-color: #cc007a;
 	color: #f4ece1 ; 
 	text-align: center;
-	font-family: Comfortaa; 
 	left: 0;
 	top: 250px;
 	border: 1px solid #cc007a;
@@ -377,7 +356,6 @@ a:hover {
     border-radius: 0 0 7px 7px;
     left:-176px;
     top:300px;
-    font-family: Comfortaa;
     font-size: 13px;
     color: #f4ece1;
     -moz-transform: rotate(270deg);  /* FF3.5+ */
@@ -395,7 +373,6 @@ a:hover {
     border-radius: 0 0 7px 7px;
     left:-200px;
     top:300px;
-    font-family: Comfortaa;
     font-size: 13px;
     color: #f4ece1;
     -moz-transform: rotate(270deg);  /* FF3.5+ */
@@ -408,6 +385,7 @@ a:hover {
 
 
 /*STYLING ON DETAILS OF PERSON POSTING ANNOUNCEMENT ON FEED */
+
 .poster_id {
 	padding-top: 10px;
 	max-width: 150px;
@@ -436,23 +414,7 @@ a:hover {
 	font-weight: bold;
 }
 
-.post_time {
-	font-family: Comfortaa;
-
-}
-
 /* ADMIN PAGE STYLING */
-
-.admin_body {
-	background-image: url('./images/chalkboard1.jpg');
-	background-repeat: cover; 
-	width: 100%;
-	/*THIS IS NOT THE  MOST EFFICIENT WAY TO BACKGROUND TO FIT PAGE*/
-	height: 828px;
-	margin: 0;
-	padding: 0;
-	color: #f4ece1;
-}
 
 .admin_header {
 	font-family: Lobster;
@@ -465,12 +427,10 @@ a:hover {
 }
 
 .form_head {
-	font-family: Comfortaa; 
 	color: #cc007a;
 }
 
 .form_headings {
-	font-family: Comfortaa; 
 	color: #f4ece1;
 	font-size: 18px;
 }
@@ -480,7 +440,6 @@ a:hover {
 }
 
 .employee_happiness {
-	font-family: Comfortaa; 
 	font-size: 24px;
 	color: #f4ece1;
 }
