@@ -1,3 +1,11 @@
+var config = {
+    	apiKey: "AIzaSyBT1BopiYEPs2ztZxep9Q8fu_IxPiJd0j0",
+    	authDomain: "conozco-1358.firebaseapp.com",
+    	databaseURL: "https://conozco-1358.firebaseio.com",
+    	storageBucket: "conozco-1358.appspot.com",
+  	};
+  	firebase.initializeApp(config);
+
 var app = angular.module("ConozcoApp", ["ngRoute","firebase", "angular.filter"]);
 
 // ROUTE CONFIGURATION
@@ -82,7 +90,6 @@ app.controller('profile_controller', function($scope, $http){
 		}
 	});
 
-	// CLOSING TAG OF ONREADY FUNCTION
 });
 
 
@@ -91,6 +98,7 @@ app.controller('profile_controller', function($scope, $http){
 app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray){
 
 	var feedRef = firebase.database().ref().child("work_feed");
+	// var feedRef = new Firebase("https://conozco-1358.firebaseio.com/work_feed");
 	$scope.announcements = $firebaseArray(feedRef);
 	$scope.newWorkAnn = {};
 
@@ -111,7 +119,8 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 	};
 
 
-
+	 
+	console.log(feedRef);
 });
 
 // GENERALFEED_CONTROLLER
