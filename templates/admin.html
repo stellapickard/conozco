@@ -47,7 +47,7 @@
 						<br> 
 						<br>
 
-						<!-- upload image code--> 
+						<!-- START OF IMAGE UPLOAD CODE--> 
 
 						<label class="btn btn-file login_button img_upload">
 							Upload image of Employee 
@@ -55,28 +55,31 @@
 						</label>
 						<p id="img_upload"></p>
 
-						<!-- end of upload image code --> 	
+						
 
-							<!-- CODEPEN EXAMPLE --> 
-										<form ng-submit="uploadFile()">
-											<input type="file" name="file" class="inputimg" id="nameImg" accept="image/*">
-											<br />
-											<span class="input-group-btn">
-												<button  type="submit" class="btn btn-block">Upload Image
-												</button>
-											</span>
-										</form>
-										
-										<div ng-repeat="img in imgs | toArray | orderBy: '-date'" class="col-xs-12 col-sm-6 col-md-3">
-											<img ng-src="{{img.base64}}">
-											<a class="btn btn-danger btn-block" ng-click="deleteimg(img.$id)">Delete</a>
-										</div>
+						<!-- CODEPEN EXAMPLE TO ASSIST WITH UPLOADING TO FIREBASE--> 
 
-						<!-- END OF CODEPEN EXAMPLE --> 
-
-
+						<form ng-submit="uploadFile()">
+							<input type="file" name="file" class="inputimg" id="nameImg" accept="image/*">
+							<br />
+							<span class="input-group-btn">
+								<button  type="submit" class="btn btn-block">Upload Image
+								</button>
+							</span>
+						</form>
+						
+						<div ng-repeat="img in imgs | toArray | orderBy: '-date'" class="col-xs-12 col-sm-6 col-md-3">
+							<img ng-src="{{img.base64}}">
+							<a class="btn btn-danger btn-block" ng-click="deleteimg(img.$id)">Delete</a>
+						</div>
 					</form>
 					<button style="color: black" ng-click="addEmployee()"> Submit </button>
+
+					<!-- END OF CODEPEN EXAMPLE --> 
+					<!-- END OF IMAGE UPLOAD CODE --> 
+
+
+					
 				</div>
 				<div class="col-md-6 checkout_user">
 					<div class="row">
@@ -102,12 +105,12 @@
 								<br> 
 								<br>
 								<p class="employee_happiness"> Your selected employee's happiness score is ... <span class="happiness_score"> ? </span></p>
-								</div>
-
 							</div>
+
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 	</div>
 </div>
