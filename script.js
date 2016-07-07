@@ -43,6 +43,7 @@ app.config(function($routeProvider){
 // LOGIN_CONTROLLER
 
 app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
+
 	function($scope, $firebaseAuth, $location, $firebaseObject) {
 		var auth = $firebaseAuth();
 
@@ -71,9 +72,6 @@ app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
 		
   }
 ]);
-
-
-
 
 
 
