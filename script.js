@@ -8,6 +8,7 @@ var config = {
 
 var app = angular.module("ConozcoApp", ["ngRoute","firebase", "angular.filter"]);
 
+var currentUserToken = "";
 // ROUTE CONFIGURATION
 
 app.config(function($routeProvider){
@@ -42,14 +43,14 @@ app.config(function($routeProvider){
 
 // LOGIN_CONTROLLER
 
-app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
-	function($scope, $firebaseAuth, $location, $firebaseObject) {
-		var auth = $firebaseAuth();
+app.controller('login_controller', function($scope, $firebaseAuth, $location, $firebaseObject) {
+		$scope.auth = $firebaseAuth();
 
-		auth.$onAuthStateChanged(function(firebaseUser) {
+		$scope.auth.$onAuthStateChanged(function(firebaseUser) {
   		if (firebaseUser) {
     		console.log("Signed in as:", firebaseUser.uid);
     		$scope.loggedIn = true;
+    		console.log(firebaseUser);
   		} 
   		else {
   			console.log("Not Signed In");
@@ -57,20 +58,20 @@ app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
   		}
 		});
 
-		$scope.login = function(){
-			auth.$signInWithPopup("google").then(function() {
-
+		$scope.login = function() {
+			$scope.auth.$signInWithPopup("google").then(function(result) {
+				console.log("psl");
 			}).catch(function(error) {
 	  		console.error("Authentication failed:", error);
 			});
 		}
 
 		$scope.signOut = function(){
-			auth.$signOut();
+			$scope.auth.$signOut();
 		}
 		
   }
-]);
+);
 
 
 
