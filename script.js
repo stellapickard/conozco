@@ -43,20 +43,33 @@ app.config(function($routeProvider){
 // LOGIN_CONTROLLER
 
 app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
-	function($scope, $firebaseAuth, $location) {
-		$scope.authObj = $firebaseAuth();
+	function($scope, $firebaseAuth, $location, $firebaseObject) {
+		var auth = $firebaseAuth();
 
-
-	$scope.login = function (){
-	
-		$scope.authObj.$signInWithPopup("google").then(function(result) {
-			console.log("Signed in as:", result.user.uid);
-			$location.path("/profile");
-		}).catch(function(error) {
-			console.error("Authentication failed:", error);
+		auth.$onAuthStateChanged(function(firebaseUser) {
+  		if (firebaseUser) {
+    		console.log("Signed in as:", firebaseUser.uid);
+    		$scope.loggedIn = true;
+  		} 
+  		else {
+  			console.log("Not Signed In");
+  			$scope.loggedIn = false;
+  		}
 		});
-	 }
-   }
+
+		$scope.login = function(){
+			auth.$signInWithPopup("google").then(function() {
+
+			}).catch(function(error) {
+	  		console.error("Authentication failed:", error);
+			});
+		}
+
+		$scope.signOut = function(){
+			auth.$signOut();
+		}
+		
+  }
 ]);
 
 
