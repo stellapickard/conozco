@@ -47,15 +47,6 @@ app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
 		$scope.authObj = $firebaseAuth();
 
 
-	$scope.login = function (){
-	
-		$scope.authObj.$signInWithPopup("google").then(function(result) {
-			console.log("Signed in as:", result.user.uid);
-			$location.path("/profile");
-		}).catch(function(error) {
-			console.error("Authentication failed:", error);
-		});
-	 }
    }
 ]);
 
