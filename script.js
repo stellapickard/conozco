@@ -46,6 +46,19 @@ app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
 	function($scope, $firebaseAuth, $location) {
 		$scope.authObj = $firebaseAuth();
 
+		$scope.authObj.$signInWithRedirect("google").then(function() {
+  // Never called because of page redirect
+		}).catch(function(error) {
+  		console.error("Authentication failed:", error);
+		});
+
+		$scope.authObj.$onAuthStateChanged(function(firebaseUser) {
+  		if (firebaseUser) {
+    	console.log("Signed in as:", firebaseUser.uid);
+  		} else {
+    	console.log("Signed out");
+  		}
+});
 
    }
 ]);
