@@ -76,9 +76,6 @@ app.controller('login_controller', function($scope, $firebaseAuth, $location, $f
 
 
 
-
-
-
 // PROFILE_CONTROLLER
 
 app.controller('profile_controller', function($scope, $http){
