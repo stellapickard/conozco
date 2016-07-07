@@ -39,12 +39,13 @@
 						<br> 
 
 						<h5 class="form_headings"> Birthday </h5>
-						<input style="color: black" class="emp_input"  type="date" placeholder="i.e. 23 March" ng-model="newEmployee.birthday">
+						<input style="color: black" class="emp_input" type="text" placeholder="i.e. 23 March" ng-model="newEmployee.birthday">
 						<br> 
 
 						<h5 class="form_headings"> Interest </h5>
 						<input style="color: black" class="emp_input"  type="text" ng-model="newEmployee.interest">
 						<br> 
+						<p style="color: white"> {{newEmployee.name}} </p>
 						<br>
 
 						<!-- START OF IMAGE UPLOAD CODE--> 
@@ -55,7 +56,7 @@
 						</label>
 						<p id="img_upload"></p>
 
-						
+
 
 						<!-- CODEPEN EXAMPLE TO ASSIST WITH UPLOADING TO FIREBASE--> 
 
@@ -67,7 +68,7 @@
 								</button>
 							</span>
 						</form>
-						
+
 						<div ng-repeat="img in imgs | toArray | orderBy: '-date'" class="col-xs-12 col-sm-6 col-md-3">
 							<img ng-src="{{img.base64}}">
 							<a class="btn btn-danger btn-block" ng-click="deleteimg(img.$id)">Delete</a>
