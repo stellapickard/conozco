@@ -145,6 +145,25 @@ a:hover {
 	height: 200px;
 }
 
+.profile_form_headings {
+	color: #00000;
+}
+
+.modal_col {
+	background-color: #CDD0D1;
+	height: 320px;
+	width: 320px;
+	border: 6px solid #cc007a;
+	margin: 15px;
+	background-size: 320px, 320px;
+	position: relative; 
+	padding-top: 110px;
+}
+
+.emp_input {
+	width: 560px;
+}
+
 .pic_col {
 	padding-right: 0px;
 	padding-left: 0px;
@@ -433,10 +452,6 @@ a:hover {
 .form_headings {
 	color: #f4ece1;
 	font-size: 18px;
-}
-
-.emp_input {
-	width: 300px;
 }
 
 .employee_happiness {

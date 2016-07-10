@@ -1,60 +1,136 @@
-<div class="row main">
+<div class="row main" onload="imgUploadFunction()">
 	<div class="col-xs-12">
 		<div class="row navbar">
- 			<div class="col-xs-12">
- 				<div class="row">
- 					<div class="col-xs-7 character">
- 						<img class="characterImg" src="./images/tempcharacter.png" alt="">
- 					</div>
- 					<div class="col-xs-5 userButtonMap">
- 						<div class="row">
- 							<div class="col-xs-8 text-center">
- 								<p class="peoplemap">
- 									<a href="#/profile">
- 										<span class="peoplemaptext">People Map</span>
- 									</a>
- 								</p>
- 							</div>
- 							<div class="col-xs-4">
- 								<div class="dropdown text-right">
- 									<button class="dropdown-toggle navtext" type="button" data-toggle="dropdown">Michael
- 										<span class="caret"></span>
- 									</button>
- 									<ul class="dropdown-menu dropdown-menu-right drpdwn">
- 										<li><a href="#">
- 											<span class="navlink">Edit Profile</span>
- 										</a></li>
- 										<li ng-show=""><a href="#">
- 											<span class="navlink">Admin</span>
- 										</a></li>
- 										<li><a href="#">
- 											<span class="navlink">Log Out</span>
- 										</a></li>
- 									</ul>
- 								</div>
- 								<div class="">
- 									<img class="profilepic" src="https://lh3.googleusercontent.com/-wysvRmf4xz4/AAAAAAAAAAI/AAAAAAAAAAA/GluI72KIjv0/photo.jpg">		
- 								</div>
- 							</div>
- 						</div>
- 					</div>
- 				</div>					
- 				<div class="row">
-
- 				</div>
- 			</div>
- 		</div>	
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="col-xs-7 character">
+						<img class="characterImg" src="./images/tempcharacter.png" alt="">
+					</div>
+					<div class="col-xs-5 userButtonMap">
+						<div class="row">
+							<div class="col-xs-8 text-center">
+								<p class="peoplemap">
+									<a href="#/profile">
+										<span class="peoplemaptext">People Map</span>
+									</a>
+								</p>
+							</div>
+							<div class="col-xs-4">
+								<div class="dropdown text-right">
+									<button class="dropdown-toggle navtext" type="button" data-toggle="dropdown">Michael
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-right drpdwn">
+										<li><a href="#">
+											<span class="navlink">Edit Profile</span>
+										</a></li>
+										<li ng-show=""><a href="#">
+											<span class="navlink">Admin</span>
+										</a></li>
+										<li><a href="#">
+											<span class="navlink">Log Out</span>
+										</a></li>
+									</ul>
+								</div>
+								<div class="">
+									<img class="profilepic" src="https://lh3.googleusercontent.com/-wysvRmf4xz4/AAAAAAAAAAI/AAAAAAAAAAA/GluI72KIjv0/photo.jpg">		
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>					
+				<div class="row"></div>
+			</div>
+		</div>	
 
 		<div class="row">
 			<div class="col-md-12 profile_header"></div>
 		</div>
+		<!-- MODAL STUFF --> 
+		<div class="row profile_modal_styling">
+		<!-- WHere does this row close? -->
+			<div class="col-md-3">
+				<!-- Trigger the modal with a button -->
+				<div class="add_announce pageview modal_col" data-toggle="modal" data-target="#myModal"> + </div>
 
-		<div class="row">
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" role="dialog">
+					<div class="modal-dialog">
 
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"> This is so absolutely ridiculous. Please appear now. </div>
+						<!-- Modal content-->
+						<div class="modal-content pageview">
+							<div class="modal-header m_header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title m_title"> Onboard Employee</h4>
+							</div>
+							<div class="modal-body">
+							<!-- INSERT ADMIN STUFF HERE -->
+
+							<h5 class="profile_form_headings"> Employee's Name & Surname </h5>
+						<input style="color: black" class="emp_input"  type="text" ng-model="newEmployee.name">
+						<br> 
+
+						<h5 class="profile_form_headings"> Department </h5>
+						<select class="emp_input selectpicker" ng-model="employee.department">
+							<option> select department</option>
+							<option> Academic Staff </option>
+							<option> Business Development </option>
+							<option> CEO Office </option>
+							<option> Creative Studios  </option>
+							<option> Finance </option>
+							<option> Learning Design </option>
+							<option> Learning Technology </option>
+							<option> Marketing </option>
+							<option> Office of the Registrar </option>
+							<option> Operations </option>
+							<option> Project Management </option>
+							<option> Sales and Enrollments</option>
+							<option> Student Performance</option>
+							<option> Systems and Technology</option>
+							<option> S.W.A.T</option>
+							<option> Talent Management</option>
+						</select>
+						<br> 
+
+						<h5 class="profile_form_headings"> Role </h5>
+						<input style="color: black" class="emp_input" type="text">
+						<br> 
+
+						<h5 class="profile_form_headings"> Birthday </h5>
+						<input style="color: black" class="emp_input" type="text" placeholder="i.e. 23 March">
+						<br> 
+
+						<h5 class="profile_form_headings"> Interest </h5>
+						<input style="color: black" class="emp_input"  type="text">
+						<br> 
+						<br>
+						<label class="btn btn-file login_button img_upload">
+							Upload image of Employee 
+							<input onchange="imgUploadFunction()" id="photo_upload" type="file" style="display: none;">
+						</label>
+						<p id="img_upload"></p>
+
+
+
+
+
+							<!-- STANDARD MODAL -->
+
+								<!-- <input class="announce_modal" type="text" placeholder="Title">
+								<input class="announce_modal" type="text" placeholder="Text"> -->
+							</div>
+							<div class="modal-footer m_footer">
+								<button type="button" class="publish_btn btn btn-default" data-dismiss="modal">Add Employee</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
 			</div>
-<!-- 
+
+			<!-- END OF MODAL --> 
+
 			<div class="col-md-3 pic_col">
 				<div class="employee_pic default_display">
 					<div class="profile_hover_replacement hover_display" style="display:none">
@@ -63,21 +139,19 @@
 						<p class="profile_details"> 10 March </p><br> 
 						<p class="profile_details"> Obsessed with mountainbiking! </p>
 					</div>
-				</div>-->
+				</div>
 				<!-- HOVER EFFECT OVER PROFILE IMAGE -->
-			<!-- </div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
 			</div>
 			<div class="col-md-3 pic_col">
 				<div class="employee_pic"></div>
 			</div>
 			<div class="col-md-3 pic_col">
 				<div class="employee_pic"></div>
-			</div> -->
-		</div>
+			</div>
+			<div class="col-md-3 pic_col">
+				<div class="employee_pic"></div>
+			</div>
 
-		<div class="row">
 			<div class="col-md-3 pic_col">
 				<div class="employee_pic"></div>
 			</div>
@@ -90,9 +164,7 @@
 			<div class="col-md-3 pic_col">
 				<div class="employee_pic"></div>
 			</div>
-		</div>
 
-		<div class="row">
 			<div class="col-md-3 pic_col">
 				<div class="employee_pic"></div>
 			</div>
@@ -105,9 +177,7 @@
 			<div class="col-md-3 pic_col">
 				<div class="employee_pic"></div>
 			</div>
-		</div>
 
-		<div class="row">
 			<div class="col-md-3 pic_col">
 				<div class="employee_pic"></div>
 			</div>
