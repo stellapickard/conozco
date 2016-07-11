@@ -8,6 +8,7 @@ var config = {
 
 var app = angular.module("ConozcoApp", ["ngRoute","firebase", "angular.filter"]);
 
+var currentUserToken = "";
 // ROUTE CONFIGURATION
 
 app.config(function($routeProvider){
@@ -42,15 +43,14 @@ app.config(function($routeProvider){
 
 // LOGIN_CONTROLLER
 
-app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
+app.controller('login_controller', function($scope, $firebaseAuth, $location, $firebaseObject) {
+		$scope.auth = $firebaseAuth();
 
-	function($scope, $firebaseAuth, $location, $firebaseObject) {
-		var auth = $firebaseAuth();
-
-		auth.$onAuthStateChanged(function(firebaseUser) {
+		$scope.auth.$onAuthStateChanged(function(firebaseUser) {
   		if (firebaseUser) {
     		console.log("Signed in as:", firebaseUser.uid);
     		$scope.loggedIn = true;
+    		console.log(firebaseUser);
   		} 
   		else {
   			console.log("Not Signed In");
@@ -58,28 +58,37 @@ app.controller('login_controller', ["$scope", "$firebaseAuth","$location",
   		}
 		});
 
-		$scope.login = function(){
-			auth.$signInWithPopup("google").then(function() {
+		$scope.login = function() {
+			
 
+			$scope.auth.$signInWithPopup("google").then(function(result) {
+				console.log("psl");
 			}).catch(function(error) {
 	  		console.error("Authentication failed:", error);
 			});
 		}
 
 		$scope.signOut = function(){
-			auth.$signOut();
+			$scope.auth.$signOut();
 		}
 		
   }
-]);
-
-
-
+);
 
 // PROFILE_CONTROLLER
 
-app.controller('profile_controller', function($scope, $http){
+app.controller('profile_controller', function($scope, $http, $firebaseArray){
 
+
+	// EMPLOYEE ONBOARDING 
+	 var employeeRef = firebase.database().ref().child("employees");
+ 	 $scope.employee = $firebaseArray(employeeRef);
+
+     $scope.newEmployee = {};
+	
+	 $scope.addEmployee = function (){
+	 $scope.employee.$add($scope.newEmployee);
+	 }; 
 
 	// PROFILE IMAGE & PEDIGREE SWAP OUT FUNCTION
 
@@ -101,145 +110,9 @@ app.controller('profile_controller', function($scope, $http){
 		}
 	});
 
-});
-
-
-// WORKFEED_CONTROLLER
-
-app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray){
-
-	var feedRef = firebase.database().ref().child("work_feed");
-	// var feedRef = new Firebase("https://conozco-1358.firebaseio.com/work_feed");
-	$scope.announcements = $firebaseArray(feedRef);
-	$scope.newWorkAnn = {};
-
-	$scope.postWorkAnn = function (){
-		$scope.announcements.$add($scope.newWorkAnn);
-		$scope.newWorkAnn = {};
-	};
-
-	var commentRef = firebase.database().ref().child("work_comments");
-	$scope.workComments = $firebaseArray(commentRef);
-	$scope.newWorkComment = {};
-	
-
-
-	$scope.postWorkComment = function (){
-		console.log('adding comment = '+$scope.newWorkComment);
-		$scope.workComments.$add($scope.newWorkComment);
-	};
-
-
-	 
-	console.log(feedRef);
-});
-
-// GENERALFEED_CONTROLLER
-
-app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray){
-
-	var feedRef = firebase.database().ref().child("general_feed");
-	$scope.announcements = $firebaseArray(feedRef);
-	$scope.newAncmnt = {};
-
-	$scope.postAncmnt = function (){
-		$scope.announcements.$add($scope.newAncmnt);
-		$scope.newAncmnt = {};
-	};
+// END OF CONTROLLER - LEAVE IMAGE UPLOAD CODE OUTSIDE CONTROLLER
 
 });
-
-// ADMIN_CONTROLLER
-
-app.controller('admin_controller', function($scope, $http, $firebaseAuth ,$firebaseArray) {
-	
-
- var employeeRef = firebase.database().ref().child("employees");
- $scope.employee = $firebaseArray(employeeRef);
-
- $scope.newEmployee = {};
-	
-		$scope.addEmployee = function (){
-			$scope.employee.$add($scope.newEmployee);
-		}
-
-// TRYING SOMETHING OUT
-
-
-
-// START OF IMAGE UPLOAD CODE
-
-// STELLA TRYING TO FIGURE OUT HOW TO UPLOAD IMAGE TO DATABASE BELOW - WORK IN PROGRESS
-
-// var img2fire = angular.module('img2fire', ['firebase', 'angular.filter']);
-
-// img2fire.controller("base64Ctrl", function($scope, $firebaseArray) {
-  
-	// var ref = new Firebase("https://base64images.firebaseio.com/");
-
-	// var img = new Firebase("https://base64images.firebaseio.com/images");
-	// $scope.imgs = $firebaseArray(img);
-
-	// var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
-	// $scope.uploadFile = function() {
-	// 	var sFileName = $("#nameImg").val();
-	// 	if (sFileName.length > 0) {
-	// 		var blnValid = false;
-	// 		for (var j = 0; j < _validFileExtensions.length; j++) {
-	// 			var sCurExtension = _validFileExtensions[j];
-	// 			if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
-	// 				blnValid = true;
-	// 				var filesSelected = document.getElementById("nameImg").files;
-	// 				if (filesSelected.length > 0) {
-	// 					var fileToLoad = filesSelected[0];
-
-	// 					var fileReader = new FileReader();
-
-	// 					fileReader.onload = function(fileLoadedEvent) {
-	// 						var textAreaFileContents = document.getElementById(
-	// 							"textAreaFileContents"
-	// 							);
-
-
-	// 						$scope.imgs.$add({
-	// 							date: Firebase.ServerValue.TIMESTAMP,
-	// 							base64: fileLoadedEvent.target.result
-	// 						});
-	// 					};
-
-	// 					fileReader.readAsDataURL(fileToLoad);
-	// 				}
-	// 				break;
-	// 			}
-	// 		}
-
-	// 		if (!blnValid) {
-	// 			alert('File is not valid');
-	// 			return false;
-	// 		}
-	// 	}
-
-	// 	return true;
-	// }
-
-  // NOT SURE IF THIS DELETE IMAGE FUNCTIONALITY WILL BE NECESSARY
-  // $scope.deleteimg = function(imgid) {
-  //   var r = confirm("Do you want to remove this image ?");
-  //   if (r == true) {
-  //     $scope.imgs.forEach(function(childSnapshot) {
-  //       if (childSnapshot.$id == imgid) {
-  //           $scope.imgs.$remove(childSnapshot).then(function(ref) {
-  //             ref.key() === childSnapshot.$id; // true
-  //           });
-  //       }
-  //     });
-  //   }
-  // }
-
-
-// END OF CONTROLLER - LEAVE IMAGE UPLOAD OUTSIDE OF THE CONTROLLER
-
-   });
 
 function imgUploadFunction(){
 		var x = document.getElementById("photo_upload");
@@ -271,3 +144,85 @@ function imgUploadFunction(){
        }
        document.getElementById("img_upload").innerHTML = txt;
      }
+
+
+// WORKFEED_CONTROLLER
+
+app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray){
+
+	var feedRef = firebase.database().ref().child("work_feed");
+	$scope.announcements = $firebaseArray(feedRef);
+	$scope.newAnnouncement = {};
+	$scope.newComment ={};
+
+	$scope.postAnnouncement = function (){
+		// console.log($scope.newAnnouncement);
+		$scope.announcements.$add($scope.newAnnouncement);
+		$scope.newAnnouncement = {};
+	};
+
+	$scope.postComment = function (announcement) {
+		var commentsRef = firebase.database().ref("work_feed/"+announcement.$id).child('comments');
+		commentsRef.push().set($scope.newComment);
+		$scope.newComment={};
+
+	};
+	
+});
+
+// GENERALFEED_CONTROLLER
+
+app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray){
+
+	var feedRef = firebase.database().ref().child("general_feed");
+	$scope.announcements = $firebaseArray(feedRef);
+	$scope.newAnnouncement = {};
+	$scope.newComment ={};
+
+	$scope.postAnnouncement = function (){
+		// console.log($scope.newAnnouncement);
+		$scope.announcements.$add($scope.newAnnouncement);
+		$scope.newAnnouncement = {};
+	};
+
+	$scope.postComment = function (announcement) {
+		var commentsRef = firebase.database().ref("general_feed/"+announcement.$id).child('comments');
+		commentsRef.push().set($scope.newComment);
+		$scope.newComment={};
+
+	};
+	
+});
+
+// ADMIN_CONTROLLER
+
+app.controller('admin_controller', function($scope, $http, $firebaseAuth ,$firebaseArray) {
+	
+
+ var employeeRef = firebase.database().ref().child("employees");
+ $scope.employee = $firebaseArray(employeeRef);
+
+ $scope.newEmployee = {};
+	
+		$scope.addEmployee = function (){
+			$scope.employee.$add($scope.newEmployee);
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+// END OF CONTROLLER - LEAVE IMAGE UPLOAD OUTSIDE OF THE CONTROLLER
+
+   });
+
+// START OF IMAGE UPLOAD CODE
+
+
