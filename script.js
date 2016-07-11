@@ -8,7 +8,9 @@ var config = {
 
 var app = angular.module("ConozcoApp", ["ngRoute","firebase", "angular.filter"]);
 
-var currentUserToken = "";
+var currentUser = "";
+var currentToken = "";
+
 // ROUTE CONFIGURATION
 
 app.config(function($routeProvider){
@@ -44,13 +46,15 @@ app.config(function($routeProvider){
 // LOGIN_CONTROLLER
 
 app.controller('login_controller', function($scope, $firebaseAuth, $location, $firebaseObject) {
-		$scope.auth = $firebaseAuth();
+		var auth = $firebaseAuth();
+		// var auth = firebase.auth();
+		// var provider = new firebase.auth.GoogleAuthProvider();
 
-		$scope.auth.$onAuthStateChanged(function(firebaseUser) {
+
+		auth.$onAuthStateChanged(function(firebaseUser) {
   		if (firebaseUser) {
     		console.log("Signed in as:", firebaseUser.uid);
     		$scope.loggedIn = true;
-    		console.log(firebaseUser);
   		} 
   		else {
   			console.log("Not Signed In");
@@ -58,16 +62,24 @@ app.controller('login_controller', function($scope, $firebaseAuth, $location, $f
   		}
 		});
 
-		$scope.login = function() {
-			$scope.auth.$signInWithPopup("google").then(function(result) {
-				console.log("psl");
+		$scope.signIn = function() {
+			auth.$signInWithPopup("google").then(function(result) {
+				var ref = firebase.database().ref().child("Users").child(result.user.uid);
+				var user = $firebaseObject(ref);
+
+				user.uid = result.user.uid;
+				user.name
+
+
+
 			}).catch(function(error) {
 	  		console.error("Authentication failed:", error);
 			});
+			
 		}
 
 		$scope.signOut = function(){
-			$scope.auth.$signOut();
+			auth.$signOut();
 		}
 		
   }
