@@ -1,4 +1,4 @@
-<div class="vertical2"><a href="#/general">switch to work announcements</a></div>
+<div class="vertical2"><a href="#/general">switch to general announcements</a></div>
 <div class="row feed_work_body"> 
 	<div class="col-xs-12">
 
@@ -82,11 +82,11 @@
 				<div class="col-md-6 col-md-offset-4 announcement_bubble">
 					<div class="col-md-12"> 
 						<h4 class="announce_subject"> {{announcement.title}} </h4>
-						<textarea class="announce_text"> {{announcement.text}} </textarea>
+						<p class="announce_text"> {{announcement.text}} </p>
 					</div>
 					<div class="col-md-12"> 
 						<ul>
-							<li ng-repeat="comment in announcement.comments" style="color:black">{{comment.text}} </li> 
+							<li class="comment_text" ng-repeat="comment in announcement.comments">{{comment.text}} </li> 
 						</ul>
 					</div>
 					<div class="col-md-1 announce_importance"> 
@@ -97,7 +97,7 @@
 						<input class="announce_comment" type="text" placeholder="   Comment..." ng-model="newComment.text">
 					</div>
 					<div class="col-md-2">
-						<button ng-click="postComment(announcement)"> Post comment</button>
+						<button class="post_comment" ng-click="postComment(announcement)"> Post</button>
 					</div>
 				</div>
 				<div class="col-md-3 poster_id">
