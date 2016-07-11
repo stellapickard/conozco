@@ -47,10 +47,14 @@ app.config(function($routeProvider){
 
 app.controller('login_controller', function($scope, $firebaseAuth, $location, $firebaseObject) {
 		var auth = $firebaseAuth();
+		// var auth = firebase.auth();
+		// var provider = new firebase.auth.GoogleAuthProvider();
+
 
 		auth.$onAuthStateChanged(function(firebaseUser) {
   		if (firebaseUser) {
-    		console.log("Signed in as:", firebaseUser.displayName);
+    		console.log("Signed in as:", firebaseUser.uid);
+    		$scope.loggedIn = true;
   		} 
   		else {
   			console.log("Not Signed In");
@@ -59,17 +63,11 @@ app.controller('login_controller', function($scope, $firebaseAuth, $location, $f
 		});
 		$scope.signIn = function() {
 			auth.$signInWithPopup("google").then(function(result) {
-				var ggUser = result.user;
-				var ref = firebase.database().ref().child("Users").child(ggUser.uid);
+				var ref = firebase.database().ref().child("Users").child(result.user.uid);
 				var user = $firebaseObject(ref);
 
-				user.uid = ggUser.uid;
-				user.email = ggUser.email;
-				user.name = ggUser.displayName;
-				user.$save().then(function(){
-					console.log("User Saved");
-				});
-
+				user.uid = result.user.uid;
+				user.name = result.user.displayname;
 
 			}).catch(function(error) {
 	  		console.error("Authentication failed:", error);
