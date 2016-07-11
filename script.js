@@ -11,6 +11,16 @@ var app = angular.module("ConozcoApp", ["ngRoute","firebase", "angular.filter"])
 var currentUser = "";
 var currentToken = "";
 
+function workLink(){
+	$location.path("/work")
+}
+function genLink(){
+	$location.path("/general")
+}
+function profLink(){
+	$location.path("/profile")
+}
+
 // ROUTE CONFIGURATION
 
 app.config(function($routeProvider){
@@ -261,21 +271,3 @@ app.controller('admin_controller', function($scope, $http, $firebaseAuth ,$fireb
 		};
 
 });
-
-
-
-
-
-
-
-
-
-
-
-// END OF CONTROLLER - LEAVE IMAGE UPLOAD OUTSIDE OF THE CONTROLLER
-
-
-
-// START OF IMAGE UPLOAD CODE
-
-
