@@ -1,7 +1,7 @@
 <div class="vertical2"><a href="#/general">switch to general announcements</a></div>
 <div class="row feed_work_body"> 
 	<div class="col-xs-12">
-
+		​
 		<!--THIS IS WHERE THE NAV BAR STUFF GOES-->
 		<div class="row navbar">
 			<div class="col-xs-12">
@@ -43,70 +43,70 @@
 					</div>
 				</div>					
 				<div class="row">
-
+					​
 				</div>
 			</div>
 		</div>
 		<!-- MODAL STUFF --> 
-			<!-- Trigger the modal with a button -->
-			<div class="add_announce pageview" data-toggle="modal" data-target="#myModal"> <span class="plus"> + </span></div>
-
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
-
-					<!-- Modal content-->
-					<div class="modal-content pageview">
-						<div class="modal-header m_header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title m_title"> Add Announcement</h4>
-						</div>
-						<div class="modal-body">
-							<input class="announce_modal" type="text" placeholder="Title" ng-model="newAnnouncement.title">
- 							<input class="announce_modal" type="text" placeholder="Text" ng-model="newAnnouncement.text">
-						</div>
-						<div class="modal-footer m_footer">
-							<button type="button" ng-click="postAnnouncement()" class="publish_btn btn btn-default" data-dismiss="modal">Publish</button>
-						</div>
+		<!-- Trigger the modal with a button -->
+		<div class="add_announce pageview" data-toggle="modal" data-target="#myModal"> <span class="plus"> + </span></div>
+		​
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+				​
+				<!-- Modal content-->
+				<div class="modal-content pageview">
+					<div class="modal-header m_header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title m_title"> Add Announcement</h4>
 					</div>
-
+					<div class="modal-body">
+						<input class="announce_modal" type="text" placeholder="Title" ng-model="newAnnouncement.title">
+						<input class="announce_modal" type="text" placeholder="Text" ng-model="newAnnouncement.text">
+					</div>
+					<div class="modal-footer m_footer">
+						<button type="button" ng-click="postAnnouncement()" class="publish_btn btn btn-default" data-dismiss="modal">Publish</button>
+					</div>
 				</div>
+				​
 			</div>
-
 		</div>
-
-		<!-- END OF MODAL --> 
-
-			<div class="row" ng-repeat="announcement in announcements | reverse">
-
-				<div class="col-md-6 col-md-offset-4 announcement_bubble">
-					<div class="col-md-12"> 
-						<h4 class="announce_subject"> {{announcement.title}} </h4>
-						<p class="announce_text"> {{announcement.text}} </p>
-					</div>
-					<div class="col-md-12"> 
-						<ul>
-							<li class="comment_text" ng-repeat="comment in announcement.comments">{{comment.text}} </li> 
-						</ul>
-					</div>
-					<div class="col-md-1 announce_importance"> 
-						<span class="glyphicon glyphicon-education"> </span> 
-						<p class="importance_score"> 223 </p>
-					</div>
-					<div class="col-md-9 comment_box">
-						<input class="announce_comment" type="text" placeholder="   Comment..." ng-model="newComment.text">
-					</div>
-					<div class="col-md-2">
-						<button class="post_comment" ng-click="postComment(announcement)"> Post</button>
-					</div>
-				</div>
-				<div class="col-md-3 poster_id">
-					<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
-					<div class="poster_name"> Stella Pickard </div>
-					<div class="post_time"> 12 March 2016 &bull; 14h23</div>
-				</div>
+		​
+	</div>
+	​
+	<!-- END OF MODAL --> 
+	​
+	<div class="row" ng-repeat="announcement in announcements | reverse">
+		​
+		<div class="col-md-6 col-md-offset-4 announcement_bubble">
+			<div class="col-md-12"> 
+				<h4 class="announce_subject"> {{announcement.title}} </h4>
+				<p class="announce_text"> {{announcement.text}} </p>
 			</div>
-					
+			<div class="col-md-12"> 
+				<ul>
+					<li class="comment_text" ng-repeat="comment in announcement.comments">{{comment.text}} </li> 
+				</ul>
+			</div>
+			<div class="col-md-1 announce_importance"> 
+				<span class="glyphicon glyphicon-education"> </span> 
+				<p class="importance_score"> 223 </p>
+			</div>
+			<div class="col-md-9 comment_box">
+				<input class="announce_comment" type="text" placeholder="   Comment..." ng-model="newComment.text">
+			</div>
+			<div class="col-md-2">
+				<button class="post_comment" ng-click="postComment(announcement)"> Post</button>
+			</div>
+		</div>
+		<div class="col-md-3 poster_id">
+			<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
+			<div class="poster_name"> Stella Pickard </div>
+			<div class="post_time"> 12 March 2016 &bull; 14h23</div>
 		</div>
 	</div>
+	
+</div>
+</div>
 </div>
