@@ -51,6 +51,7 @@ app.controller('login_controller', function($scope, $firebaseAuth, $location, $f
 		auth.$onAuthStateChanged(function(firebaseUser) {
   		if (firebaseUser) {
     		console.log("Signed in as:", firebaseUser.displayName);
+    		$scope.loggedIn = true;
   		} 
   		else {
   			console.log("Not Signed In");
@@ -85,7 +86,18 @@ app.controller('login_controller', function($scope, $firebaseAuth, $location, $f
 );
 // PROFILE_CONTROLLER
 
-app.controller('profile_controller', function($scope, $http, $firebaseArray){
+app.controller('profile_controller', function($scope, $http, $firebaseArray, $location, $firebaseAuth){
+		var auth = $firebaseAuth();
+
+		auth.$onAuthStateChanged(function(firebaseUser) {
+  		if (firebaseUser) {
+    		console.log("Signed in as:", firebaseUser.displayName);
+  		} 
+  		else {
+  			console.log("Not Signed In");
+  			$location.path("/");
+  		}
+  	});
 
 
 	// EMPLOYEE ONBOARDING 
@@ -156,7 +168,18 @@ function imgUploadFunction(){
 
 // WORKFEED_CONTROLLER
 
-app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray){
+app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray, $location){
+			var auth = $firebaseAuth();
+
+		auth.$onAuthStateChanged(function(firebaseUser) {
+  		if (firebaseUser) {
+    		console.log("Signed in as:", firebaseUser.displayName);
+  		} 
+  		else {
+  			console.log("Not Signed In");
+  			$location.path("/");
+  		}
+  	});
 
 	var feedRef = firebase.database().ref().child("work_feed");
 	$scope.announcements = $firebaseArray(feedRef);
@@ -180,7 +203,18 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 
 // GENERALFEED_CONTROLLER
 
-app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray){
+app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray, $location){
+		var auth = $firebaseAuth();
+
+		auth.$onAuthStateChanged(function(firebaseUser) {
+  		if (firebaseUser) {
+    		console.log("Signed in as:", firebaseUser.displayName);
+  		} 
+  		else {
+  			console.log("Not Signed In");
+  			$location.path("/");
+  		};
+	});
 
 	var feedRef = firebase.database().ref().child("general_feed");
 	$scope.announcements = $firebaseArray(feedRef);
@@ -204,8 +238,18 @@ app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, 
 
 // ADMIN_CONTROLLER
 
-app.controller('admin_controller', function($scope, $http, $firebaseAuth ,$firebaseArray) {
-	
+app.controller('admin_controller', function($scope, $http, $firebaseAuth ,$firebaseArray, $location) {
+			var auth = $firebaseAuth();
+
+		auth.$onAuthStateChanged(function(firebaseUser) {
+  		if (firebaseUser) {
+    		console.log("Signed in as:", firebaseUser.displayName);
+  		} 
+  		else {
+  			console.log("Not Signed In");
+  			$location.path("/");
+  		}
+  });
 
  var employeeRef = firebase.database().ref().child("employees");
  $scope.employee = $firebaseArray(employeeRef);
@@ -214,8 +258,9 @@ app.controller('admin_controller', function($scope, $http, $firebaseAuth ,$fireb
 	
 		$scope.addEmployee = function (){
 			$scope.employee.$add($scope.newEmployee);
-		}
+		};
 
+});
 
 
 
@@ -229,7 +274,7 @@ app.controller('admin_controller', function($scope, $http, $firebaseAuth ,$fireb
 
 // END OF CONTROLLER - LEAVE IMAGE UPLOAD OUTSIDE OF THE CONTROLLER
 
-   });
+
 
 // START OF IMAGE UPLOAD CODE
 
