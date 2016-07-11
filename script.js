@@ -84,13 +84,20 @@ app.controller('login_controller', function($scope, $firebaseAuth, $location, $f
   }
 );
 
-
-
-
 // PROFILE_CONTROLLER
 
-app.controller('profile_controller', function($scope, $http){
+app.controller('profile_controller', function($scope, $http, $firebaseArray){
 
+
+	// EMPLOYEE ONBOARDING 
+	 var employeeRef = firebase.database().ref().child("employees");
+ 	 $scope.employee = $firebaseArray(employeeRef);
+
+     $scope.newEmployee = {};
+	
+	 $scope.addEmployee = function (){
+	 $scope.employee.$add($scope.newEmployee);
+	 }; 
 
 	// PROFILE IMAGE & PEDIGREE SWAP OUT FUNCTION
 
@@ -178,20 +185,22 @@ app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, 
 
 	var feedRef = firebase.database().ref().child("general_feed");
 	$scope.announcements = $firebaseArray(feedRef);
-	$scope.newAncmnt = {};
-	$scope.newComment = {};
+	$scope.newAnnouncement = {};
+	$scope.newComment ={};
 
-	$scope.postAncmnt = function (){
-		$scope.announcements.$add($scope.newAncmnt);
-		$scope.newAncmnt = {};
+	$scope.postAnnouncement = function (){
+		// console.log($scope.newAnnouncement);
+		$scope.announcements.$add($scope.newAnnouncement);
+		$scope.newAnnouncement = {};
 	};
 
-	$scope.postComment = function (announcement){
+	$scope.postComment = function (announcement) {
 		var commentsRef = firebase.database().ref("general_feed/"+announcement.$id).child('comments');
 		commentsRef.push().set($scope.newComment);
-		$scope.newComment = {};
-	};
+		$scope.newComment={};
 
+	};
+	
 });
 
 // ADMIN_CONTROLLER

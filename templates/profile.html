@@ -48,7 +48,7 @@
 		</div>
 		<!-- MODAL STUFF --> 
 		<div class="row profile_modal_styling">
-		<!-- WHere does this row close? -->
+			<!-- WHere does this row close? -->
 			<div class="col-md-3">
 				<!-- Trigger the modal with a button -->
 				<div class="add_announce pageview modal_col" data-toggle="modal" data-target="#myModal"> + </div>
@@ -64,63 +64,56 @@
 								<h4 class="modal-title m_title"> Onboard Employee</h4>
 							</div>
 							<div class="modal-body">
-							<!-- INSERT ADMIN STUFF HERE -->
+								<!-- INSERT ADMIN STUFF HERE -->
 
-							<h5 class="profile_form_headings"> Employee's Name & Surname </h5>
-						<input style="color: black" class="emp_input"  type="text" ng-model="newEmployee.name">
-						<br> 
+								<h5 class="profile_form_headings"> Employee's Name & Surname </h5>
+								<input style="color: black" class="emp_input"  type="text" ng-model="newEmployee.name">
+								<br> 
 
-						<h5 class="profile_form_headings"> Department </h5>
-						<select class="emp_input selectpicker" ng-model="employee.department">
-							<option> select department</option>
-							<option> Academic Staff </option>
-							<option> Business Development </option>
-							<option> CEO Office </option>
-							<option> Creative Studios  </option>
-							<option> Finance </option>
-							<option> Learning Design </option>
-							<option> Learning Technology </option>
-							<option> Marketing </option>
-							<option> Office of the Registrar </option>
-							<option> Operations </option>
-							<option> Project Management </option>
-							<option> Sales and Enrollments</option>
-							<option> Student Performance</option>
-							<option> Systems and Technology</option>
-							<option> S.W.A.T</option>
-							<option> Talent Management</option>
-						</select>
-						<br> 
+								<h5 class="profile_form_headings"> Department </h5>
+								<select class="emp_input selectpicker" ng-model="newEmployee.department">
+									<option> select department</option>
+									<option> Academic Staff </option>
+									<option> Business Development </option>
+									<option> CEO Office </option>
+									<option> Creative Studios  </option>
+									<option> Finance </option>
+									<option> Learning Design </option>
+									<option> Learning Technology </option>
+									<option> Marketing </option>
+									<option> Office of the Registrar </option>
+									<option> Operations </option>
+									<option> Project Management </option>
+									<option> Sales and Enrollments</option>
+									<option> Student Performance</option>
+									<option> Systems and Technology</option>
+									<option> S.W.A.T</option>
+									<option> Talent Management</option>
+								</select>
+								<br> 
 
-						<h5 class="profile_form_headings"> Role </h5>
-						<input style="color: black" class="emp_input" type="text">
-						<br> 
+								<h5 class="profile_form_headings"> Role </h5>
+								<input style="color: black" class="emp_input" type="text" ng-model="newEmployee.role">
+								<br> 
 
-						<h5 class="profile_form_headings"> Birthday </h5>
-						<input style="color: black" class="emp_input" type="text" placeholder="i.e. 23 March">
-						<br> 
+								<h5 class="profile_form_headings"> Birthday </h5>
+								<input style="color: black" class="emp_input" type="text" placeholder="i.e. 23 March" ng-model="newEmployee.birthday">
+								<br> 
 
-						<h5 class="profile_form_headings"> Interest </h5>
-						<input style="color: black" class="emp_input"  type="text">
-						<br> 
-						<br>
-						<label class="btn btn-file login_button img_upload">
-							Upload image of Employee 
-							<input onchange="imgUploadFunction()" id="photo_upload" type="file" style="display: none;">
-						</label>
-						<p id="img_upload"></p>
+								<h5 class="profile_form_headings"> Interest </h5>
+								<input style="color: black" class="emp_input"  type="text" ng-model="newEmployee.interest">
+								<br> 
+								<br>
+								<label class="btn btn-file login_button img_upload">
+									Upload image of Employee 
+									<input onchange="imgUploadFunction()" id="photo_upload" type="file" style="display: none;">
+								</label>
+								<p id="img_upload"></p>
 
-
-
-
-
-							<!-- STANDARD MODAL -->
-
-								<!-- <input class="announce_modal" type="text" placeholder="Title">
-								<input class="announce_modal" type="text" placeholder="Text"> -->
 							</div>
+							
 							<div class="modal-footer m_footer">
-								<button type="button" class="publish_btn btn btn-default" data-dismiss="modal">Add Employee</button>
+								<button type="button" class="publish_btn btn btn-default" data-dismiss="modal" ng-click="addEmployee()">Add Employee</button>
 							</div>
 						</div>
 
@@ -133,11 +126,12 @@
 
 			<div class="col-md-3 pic_col">
 				<div class="employee_pic default_display">
-					<div class="profile_hover_replacement hover_display" style="display:none">
-						<h1 class="profile_name"> Stella Pickard </h1>
-						<p class="profile_details"> Web Developer </p><br>
-						<p class="profile_details"> 10 March </p><br> 
-						<p class="profile_details"> Obsessed with mountainbiking! </p>
+					<div class="profile_hover_replacement hover_display" style="display:none" ng-repeat="employee in employees">
+						<h1 class="profile_name"> {{employee.name}} </h1>
+						<p class="profile_details"> {{employee.department}} </p><br>
+						<p class="profile_details"> {{employee.role}} </p><br>
+						<p class="profile_details"> {{employee.birthday}} </p><br> 
+						<p class="profile_details"> {{employee.interest}} </p>
 					</div>
 				</div>
 				<!-- HOVER EFFECT OVER PROFILE IMAGE -->
