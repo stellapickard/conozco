@@ -1,115 +1,34 @@
 <div class="row">
-	<div class="col-md-12 admin_body" onload="imgUploadFunction()">
+	<div class="col-md-12 admin_body">
 		<div class="admin_header"> 
 			<p> hey admin! </p>
 		</div>
 		<div class="form_container">
 			<div class="row">
-				<div class="col-md-4 col-md-offset-2 onboard_user">
-					<h2 class="form_head"> Onboard new employee </h2>
-					<form>
-						<h5 class="form_headings"> Employee's Name & Surname </h5>
-						<input style="color: black" class="emp_input"  type="text" ng-model="newEmployee.name">
-						<br> 
-
-						<h5 class="form_headings"> Department </h5>
-						<select class="emp_input selectpicker" ng-model="employee.department">
-							<option> select department</option>
-							<option> Academic Staff </option>
-							<option> Business Development </option>
-							<option> CEO Office </option>
-							<option> Creative Studios  </option>
-							<option> Finance </option>
-							<option> Learning Design </option>
-							<option> Learning Technology </option>
-							<option> Marketing </option>
-							<option> Office of the Registrar </option>
-							<option> Operations </option>
-							<option> Project Management </option>
-							<option> Sales and Enrollments</option>
-							<option> Student Performance</option>
-							<option> Systems and Technology</option>
-							<option> S.W.A.T</option>
-							<option> Talent Management</option>
+				<div class="col-md-4 col-md-offset-4 checkout_user">
+					<h2 class="form_head"> Edit &amp; View  </h2>
+					<div class="col-md-12">
+						<h5 class="form_headings"> Remove Employee </h5>
+						<select class="emp_input" type="text" placeholder="select employee name"> 
+							<option> select employee </option>
+							<option> </option>
 						</select>
 						<br> 
-
-						<h5 class="form_headings"> Role </h5>
-						<input style="color: black" class="emp_input" type="text" ng-model="newEmployee.role">
-						<br> 
-
-						<h5 class="form_headings"> Birthday </h5>
-						<input style="color: black" class="emp_input" type="text" placeholder="i.e. 23 March" ng-model="newEmployee.birthday">
-						<br> 
-
-						<h5 class="form_headings"> Interest </h5>
-						<input style="color: black" class="emp_input"  type="text" ng-model="newEmployee.interest">
-						<br> 
-						<p style="color: white"> {{newEmployee.name}} </p>
 						<br>
-
-						<!-- START OF IMAGE UPLOAD CODE--> 
-
-						<label class="btn btn-file login_button img_upload">
-							Upload image of Employee 
-							<input onchange="imgUploadFunction()" id="photo_upload" type="file" style="display: none;">
-						</label>
-						<p id="img_upload"></p>
-
-
-
-						<!-- CODEPEN EXAMPLE TO ASSIST WITH UPLOADING TO FIREBASE--> 
-
-						<form ng-submit="uploadFile()">
-							<input type="file" name="file" class="inputimg" id="nameImg" accept="image/*">
-							<br />
-							<span class="input-group-btn">
-								<button  type="submit" class="btn btn-block">Upload Image
-								</button>
-							</span>
-						</form>
-
-						<div ng-repeat="img in imgs | toArray | orderBy: '-date'" class="col-xs-12 col-sm-6 col-md-3">
-							<img ng-src="{{img.base64}}">
-							<a class="btn btn-danger btn-block" ng-click="deleteimg(img.$id)">Delete</a>
-						</div>
-					</form>
-					<button style="color: black" ng-click="addEmployee()"> Submit </button>
-
-					<!-- END OF CODEPEN EXAMPLE --> 
-					<!-- END OF IMAGE UPLOAD CODE --> 
-
-
-					
-				</div>
-				<div class="col-md-6 checkout_user">
-					<div class="row">
-						<div class="col-md-5 col-md-offset-1 onboard_user">
-							<h2 class="form_head"> Edit &amp; View  </h2>
-							<div class="col-md-12">
-								<h5 class="form_headings"> Remove Employee </h5>
-								<select class="emp_input" type="text" placeholder="select employee name"> 
-									<option> select employee </option>
-									<option> </option>
-								</select>
-								<br> 
-								<br>
-								<button class="login_button"><a class="login_link" href="#"> Remove </a></button>
-							</div>
-
-							<div class="col-md-12 happiness_div">
-								<h5 class="form_headings"> View Employee Happiness </h5>
-								<select class="emp_input" type="text" placeholder="select employee name"> 
-									<option> select employee </option>
-									<option> </option>
-								</select>
-								<br> 
-								<br>
-								<p class="employee_happiness"> Your selected employee's happiness score is ... <span class="happiness_score"> ? </span></p>
-							</div>
-
-						</div>
+						<button class="login_button"><a class="login_link" href="#"> Remove </a></button>
 					</div>
+
+					<div class="col-md-12 happiness_div">
+						<h5 class="form_headings"> View Employee Happiness </h5>
+						<select class="emp_input" type="text" placeholder="select employee name"> 
+							<option> select employee </option>
+							<option> </option>
+						</select>
+						<br> 
+						<br>
+						<p class="employee_happiness"> Your selected employee's happiness score is ... <span class="happiness_score"> ? </span></p>
+					</div>
+
 				</div>
 			</div>
 		</div>
