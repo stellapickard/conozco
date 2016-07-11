@@ -42,9 +42,6 @@
  						</div>
  					</div>
  				</div>					
- 				<div class="row">
-
- 				</div>
  			</div>
  		</div>	
 
@@ -71,26 +68,25 @@
  						<button type="button" class="publish_btn btn btn-default" data-dismiss="modal" ng-click="postAncmnt()">Publish</button>
  					</div>
  				</div>
-
  			</div>
  		</div>
-
  	</div>
+
+ 	
  	<!-- END OF MODAL STUFF --> 
 
- 	<div class="row" ng-repeat="announcement in announcements | reverse" >
+ 	<div class="row" ng-repeat="announcement in announcements | reverse">
 
- 		<!-- END OF TOGGLE --> 
  		<div class="col-md-6 col-md-offset-4 gen_announcement_bubble">
  			<div class="col-md-12"> 
  				<h4 class="gen_announce_subject"> {{announcement.title}} </h4>
  				<textarea class="announce_text"> {{announcement.text}}</textarea>
  			</div>
  			<div class="col-md-12"> 
-				<ul>
-					<li ng-repeat="comment in announcement.comments" style="color:black">{{comment.text}}</li> 
-				</ul>
-			</div>
+ 				<ul>
+ 					<li ng-repeat="comment in announcement.comments" style="color:black">{{comment.text}}</li> 
+ 				</ul>
+ 			</div>
  			<div class="col-md-1 gen_announce_importance"> 
  				<span class="glyphicon glyphicon-education"></span>
  				<p class="importance_score"> 223 </p>
@@ -102,11 +98,11 @@
  				<button ng-click="postComment(announcement)">Post comment</button>
  			</div>
  		</div>
- 		<div class="col-md-2 poster_id">
+ 		<div class="col-md-3 poster_id">
  			<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
  			<div class="poster_name"> Stella Pickard </div>
  			<div class="post_time"> 12 March 2016 &bull; 14h23</div>
  		</div>
  	</div>
-</div>
+ </div>
 
