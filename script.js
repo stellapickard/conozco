@@ -61,25 +61,14 @@ app.controller('login_controller', function($scope, $firebaseAuth, $location, $f
   			$scope.loggedIn = false;
   		}
 		});
-
-<<<<<<< HEAD
 		$scope.signIn = function() {
 			auth.$signInWithPopup("google").then(function(result) {
 				var ref = firebase.database().ref().child("Users").child(result.user.uid);
 				var user = $firebaseObject(ref);
 
 				user.uid = result.user.uid;
-				user.name
+				user.name = result.user.displayname;
 
-
-
-=======
-		$scope.login = function() {
-			
-
-			$scope.auth.$signInWithPopup("google").then(function(result) {
-				console.log("psl");
->>>>>>> refs/remotes/origin/master
 			}).catch(function(error) {
 	  		console.error("Authentication failed:", error);
 			});
