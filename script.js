@@ -149,19 +149,14 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 	$scope.newComment ={};
 
 	$scope.postAnnouncement = function (){
-		console.log($scope.newAnnouncement);
+		// console.log($scope.newAnnouncement);
 		$scope.announcements.$add($scope.newAnnouncement);
 		$scope.newAnnouncement = {};
 	};
 
-	
-	
-
 	$scope.postComment = function (announcement) {
 		var commentsRef = firebase.database().ref("work_feed/"+announcement.$id).child('comments');
-		
 		commentsRef.push().set($scope.newComment);
-		
 		$scope.newComment={};
 
 	};
@@ -175,10 +170,17 @@ app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, 
 	var feedRef = firebase.database().ref().child("general_feed");
 	$scope.announcements = $firebaseArray(feedRef);
 	$scope.newAncmnt = {};
+	$scope.newComment = {};
 
 	$scope.postAncmnt = function (){
 		$scope.announcements.$add($scope.newAncmnt);
 		$scope.newAncmnt = {};
+	};
+
+	$scope.postComment = function (announcement){
+		var commentsRef = firebase.database().ref("general_feed/"+announcement.$id).child('comments');
+		commentsRef.push().set($scope.newComment);
+		$scope.newComment = {};
 	};
 
 });
