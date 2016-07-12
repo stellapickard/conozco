@@ -1,113 +1,105 @@
  <div class="gen_announce_vertical"><a href="#/work">switch to work announcements</a></div>
  <div class="row feed_gen_body">
  	<div class="col-xs-12">
-
+ 		​
  		<!--THIS IS WHERE THE NAV BAR STUFF GOES-->
- 		<div class="row navbar">
- 			<div class="col-xs-12">
- 				<div class="row">
- 					<div class="col-xs-7 character">
- 						<img class="characterImg" src="{{ggUser.photoURL}}" alt="">
- 					</div>
- 					<div class="col-xs-5 userButtonMap">
- 						<div class="row">
- 							<div class="col-xs-8 text-center">
- 								<p class="peoplemap">
- 									<a href="#/profile">
- 										<span class="peoplemaptext">People Map</span>
- 									</a>
- 								</p>
- 							</div>
- 							<div class="col-xs-4">
- 								<div class="dropdown text-right">
- 									<button class="dropdown-toggle navtext" type="button" data-toggle="dropdown"> {{ggUser.displayName}}
- 										<span class="caret"></span>
- 									</button>
- 									<ul class="dropdown-menu dropdown-menu-right drpdwn">
- 										<li><a href="#">
- 											<span class="navlink">Edit Profile</span>
- 										</a></li>
- 										<li ng-show=""><a href="#">
- 											<span class="navlink">Admin</span>
- 										</a></li>
- 										<li><a href="#">
- 											<span class="navlink">Log Out</span>
- 										</a></li>
- 									</ul>
- 								</div>
- 								<div class="">
- 									<img class="profilepic" src="{{ggUser.photoURL}}">		
- 								</div>
- 							</div>
- 						</div>
- 					</div>
- 				</div>					
- 				<div class="row">
 
- 				</div>
- 			</div>
- 		</div>	
-
- 			<!-- Trigger the modal with a button -->
-			<div class="add_announce pageview" data-toggle="modal" data-target="#myModal"> <span class="plus"> + </span></div>
-
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
-
-					<!-- Modal content-->
-					<div class="modal-content pageview">
-						<div class="modal-header m_header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title m_title"> Add Announcement</h4>
-						</div>
-						<div class="modal-body">
-							<input class="announce_modal" type="text" placeholder="Title" ng-model="newAnnouncement.title">
- 							<input class="announce_modal" type="text" placeholder="Text" ng-model="newAnnouncement.text">
-						</div>
-						<div class="modal-footer m_footer">
-							<button type="button" ng-click="postAnnouncement()" class="publish_btn btn btn-default" data-dismiss="modal">Publish</button>
+		<div class="row navbar" style="top:0px;">
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="col-xs-7 character">
+						<img class="characterImg" src="./images/tempcharacter.png" alt="">
+					</div>
+					<div class="col-xs-5 userButtonMap">
+						<div class="row">
+							<div class="col-xs-8 text-center">
+								<p class="peoplemap">
+									<a href="#/profile">
+										<span class="peoplemaptext">People Map</span>
+									</a>
+								</p>
+							</div>
+							<div class="col-xs-4">
+								<div class="dropdown text-right">
+									<button class="dropdown-toggle navtext" type="button" data-toggle="dropdown">Michael
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-right drpdwn">
+										<li><a href="#">
+											<span class="navlink">Edit Profile</span>
+										</a></li>
+										<li ng-show=""><a href="#">
+											<span class="navlink">Admin</span>
+										</a></li>
+										<li><a href="#">
+											<span class="navlink">Log Out</span>
+										</a></li>
+									</ul>
+								</div>
+								<div class="">
+									<img class="profilepic" src="https://lh3.googleusercontent.com/-wysvRmf4xz4/AAAAAAAAAAI/AAAAAAAAAAA/GluI72KIjv0/photo.jpg">		
+								</div>
+							</div>
 						</div>
 					</div>
-
-				</div>
+				</div>					
+				<div class="row"></div>
 			</div>
-
+		</div>	
+ 		​
+ 		<!-- Trigger the modal with a button -->
+ 		<div class="add_announce pageview" data-toggle="modal" data-target="#myModal"> <span class="plus"> + </span></div>
+ 		​
+ 		<!-- Modal -->
+ 		<div class="modal fade" id="myModal" role="dialog">
+ 			<div class="modal-dialog">
+ 				​
+ 				<!-- Modal content-->
+ 				<div class="modal-content pageview">
+ 					<div class="modal-header m_header">
+ 						<button type="button" class="close" data-dismiss="modal">&times;</button>
+ 						<h4 class="modal-title m_title"> Add Announcement</h4>
+ 					</div>
+ 					<div class="modal-body">
+ 						<input class="announce_modal" type="text" placeholder="Title" ng-model="newAnnouncement.title">
+ 						<input class="announce_modal" type="text" placeholder="Text" ng-model="newAnnouncement.text">
+ 					</div>
+ 					<div class="modal-footer m_footer">
+ 						<button type="button" ng-click="postAnnouncement()" class="publish_btn btn btn-default" data-dismiss="modal">Publish</button>
+ 					</div>
+ 				</div>
+ 				​
+ 			</div>
 		</div>
-		
-	<div class="row" ng-repeat="announcement in announcements | reverse">
 
-				<div class="col-md-6 col-md-offset-4 announcement_bubble">
-					<div class="col-md-12"> 
-						<h4 class="announce_subject"> {{announcement.title}} </h4>
-						<p class="announce_text"> {{announcement.text}} </p>
-					</div>
-					<div class="col-md-12"> 
-						<ul>
-							<li class="comment_text" ng-repeat="comment in announcement.comments">{{comment.text}} </li> 
-						</ul>
-					</div>
-					<div class="col-md-1 announce_importance" ng-click="onClick()"> 
-						<span class="glyphicon glyphicon-education"></span> 
-						<p class="importance_score"> {{score}} </p>
-					</div>
-					<div class="col-md-9 comment_box">
-						<input class="announce_comment" type="text" placeholder="   Comment..." ng-model="newComment.text">
-					</div>
-					<div class="col-md-2">
-						<button class="post_comment" ng-click="postComment(announcement)"> Post</button>
-					</div>
-				</div>
-				<div class="col-md-3 poster_id">
-					<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
-					<div class="poster_name"> Stella Pickard </div>
-					<div class="post_time"> 12 March 2016 &bull; 14h23</div>
-				</div>
-	</div>
-
-</div>
-
-
-
-
-
+ 	<div class="row" ng-repeat="announcement in announcements | reverse">
+ 		​
+ 		<div class="col-md-6 col-md-offset-4 announcement_bubble">
+ 			<div class="col-md-12"> 
+ 				<h4 class="announce_subject"> {{announcement.title}} </h4>
+ 				<p class="announce_text"> {{announcement.text}} </p>
+ 			</div>
+ 			<div class="col-md-12"> 
+ 				<ul>
+ 					<li class="comment_text" ng-repeat="comment in announcement.comments">{{comment.text}} </li> 
+ 				</ul>
+ 			</div>
+ 			<div class="col-md-1 announce_importance"> 
+ 				<span class="glyphicon glyphicon-education"> </span> 
+ 				<p class="importance_score"> 223 </p>
+ 			</div>
+ 			<div class="col-md-9 comment_box">
+ 				<input class="announce_comment" type="text" placeholder="   Comment..." ng-model="newComment.text">
+ 			</div>
+ 			<div class="col-md-2">
+ 				<button class="post_comment" ng-click="postComment(announcement)"> Post</button>
+ 			</div>
+ 		</div>
+ 		<div class="col-md-3 poster_id">
+ 			<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
+ 			<div class="poster_name"> Stella Pickard </div>
+ 			<div class="post_time"> 12 March 2016 &bull; 14h23</div>
+ 		</div>
+ 	</div>
+ 	​
+ </div>

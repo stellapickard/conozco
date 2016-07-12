@@ -10,6 +10,20 @@ var app = angular.module("ConozcoApp", ["ngRoute","firebase", "angular.filter"])
 
 var currentUserToken = "";
 var test;
+
+var currentUser = "";
+var currentToken = "";
+
+function workLink(){
+	$location.path("/work")
+}
+function genLink(){
+	$location.path("/general")
+}
+function profLink(){
+	$location.path("/profile")
+}
+
 // ROUTE CONFIGURATION
 
 app.config(function($routeProvider){
@@ -45,40 +59,58 @@ app.config(function($routeProvider){
 // LOGIN_CONTROLLER
 
 app.controller('login_controller', function($scope, $firebaseAuth, $location, $firebaseObject) {
-		$scope.auth = $firebaseAuth();
+		var auth = $firebaseAuth();
 
-		$scope.auth.$onAuthStateChanged(function(firebaseUser) {
+		auth.$onAuthStateChanged(function(firebaseUser) {
   		if (firebaseUser) {
-    		console.log("Signed in as:", firebaseUser.uid);
+    		console.log("Signed in as:", firebaseUser.displayName);
     		$scope.loggedIn = true;
-    		console.log(firebaseUser);
   		} 
   		else {
   			console.log("Not Signed In");
   			$scope.loggedIn = false;
   		}
 		});
+		$scope.signIn = function() {
+			auth.$signInWithPopup("google").then(function(result) {
+				var ggUser = result.user;
+				var ref = firebase.database().ref().child("Users").child(ggUser.uid);
+				var user = $firebaseObject(ref);
 
-		$scope.login = function() {
-			
+				user.uid = ggUser.uid;
+				user.email = ggUser.email;
+				user.name = ggUser.displayName;
+				user.$save().then(function(){
+					console.log("User Saved");
+				});
 
-			$scope.auth.$signInWithPopup("google").then(function(result) {
-				console.log("psl");
+
 			}).catch(function(error) {
 	  		console.error("Authentication failed:", error);
 			});
+			
 		}
 
 		$scope.signOut = function(){
-			$scope.auth.$signOut();
+			auth.$signOut();
 		}
 		
   }
 );
-
 // PROFILE_CONTROLLER
 
-app.controller('profile_controller', function($scope, $http, $firebaseArray){
+app.controller('profile_controller', function($scope, $http, $firebaseArray, $location, $firebaseAuth){
+		var auth = $firebaseAuth();
+
+		auth.$onAuthStateChanged(function(firebaseUser) {
+  		if (firebaseUser) {
+    		console.log("Signed in as:", firebaseUser.displayName);
+  		} 
+  		else {
+  			console.log("Not Signed In");
+  			$location.path("/");
+  		}
+  	});
 
 
 	
@@ -152,7 +184,18 @@ function imgUploadFunction(){
 
 // WORKFEED_CONTROLLER
 
-app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray){
+app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray, $location){
+			var auth = $firebaseAuth();
+
+		auth.$onAuthStateChanged(function(firebaseUser) {
+  		if (firebaseUser) {
+    		console.log("Signed in as:", firebaseUser.displayName);
+  		} 
+  		else {
+  			console.log("Not Signed In");
+  			$location.path("/");
+  		}
+  	});
 
 	var feedRef = firebase.database().ref().child("work_feed");
 	$scope.announcements = $firebaseArray(feedRef);
@@ -199,7 +242,18 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 
 // GENERALFEED_CONTROLLER
 
-app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray){
+app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray, $location){
+		var auth = $firebaseAuth();
+
+		auth.$onAuthStateChanged(function(firebaseUser) {
+  		if (firebaseUser) {
+    		console.log("Signed in as:", firebaseUser.displayName);
+  		} 
+  		else {
+  			console.log("Not Signed In");
+  			$location.path("/");
+  		};
+	});
 
 	var feedRef = firebase.database().ref().child("general_feed");
 	$scope.announcements = $firebaseArray(feedRef);
@@ -222,8 +276,18 @@ app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, 
 
 // ADMIN_CONTROLLER
 
-app.controller('admin_controller', function($scope, $http, $firebaseAuth ,$firebaseArray) {
-	
+app.controller('admin_controller', function($scope, $http, $firebaseAuth ,$firebaseArray, $location) {
+			var auth = $firebaseAuth();
+
+		auth.$onAuthStateChanged(function(firebaseUser) {
+  		if (firebaseUser) {
+    		console.log("Signed in as:", firebaseUser.displayName);
+  		} 
+  		else {
+  			console.log("Not Signed In");
+  			$location.path("/");
+  		}
+  });
 
  var employeeRef = firebase.database().ref().child("employees");
  $scope.employee = $firebaseArray(employeeRef);
@@ -232,23 +296,6 @@ app.controller('admin_controller', function($scope, $http, $firebaseAuth ,$fireb
 	
 		$scope.addEmployee = function (){
 			$scope.employee.$add($scope.newEmployee);
-		}
+		};
 
-
-
-
-
-
-
-
-
-
-
-
-// END OF CONTROLLER - LEAVE IMAGE UPLOAD OUTSIDE OF THE CONTROLLER
-
-   });
-
-// START OF IMAGE UPLOAD CODE
-
-
+});

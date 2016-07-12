@@ -56,7 +56,10 @@ a:hover {
 	height: 70px;
 	width: 70px;
 	background: lightslategrey;
-	border-radius: 2px;
+	border-radius: 3px;
+	text-align: center;
+	padding-top: 12px;
+	font-size: 1.1em;
 }
 
 .peoplemaptext {
@@ -407,9 +410,10 @@ a:hover {
 	position: fixed;
     background-color: #cc007a;
     padding: 10px;
+    padding-top: 6px;
     border-radius: 0 0 7px 7px;
-    left:-176px;
-    top:300px;
+    left:-182px;
+    top:304px;
     font-size: 13px;
     color: #f4ece1;
     -moz-transform: rotate(270deg);  /* FF3.5+ */
