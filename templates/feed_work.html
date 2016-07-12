@@ -85,7 +85,7 @@
 					<li class="comment_text" ng-repeat="comment in announcement.comments">{{comment.text}} </li> 
 				</ul>
 			</div>
-			<div class="col-md-1 announce_importance"> 
+			<div class="col-md-1 announce_importance" ng-click="onClick(announcement)"> 
 				<span class="glyphicon glyphicon-education"> </span> 
 				<p class="importance_score"> {{Object.keys(announcement.scores).length}} </p>
 			</div>
