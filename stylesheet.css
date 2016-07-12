@@ -390,9 +390,11 @@ a:hover {
 }
 
 .vertical2 {
+	z-index: 1;
     position: fixed;
     background-color: #cc007a;
     padding: 10px;
+    padding-top: 6px;
     border-radius: 0 0 7px 7px;
     left:-200px;
     top:300px;
@@ -407,6 +409,7 @@ a:hover {
 } 
 
 .gen_announce_vertical {
+	z-index: 1;
 	position: fixed;
     background-color: #cc007a;
     padding: 10px;

@@ -1,4 +1,4 @@
- <div class="gen_announce_vertical"><a href="#/work">switch to work announcements</a></div>
+ <button class="gen_announce_vertical" ng-click="workLink()">switch to work announcements</button>
  <div class="row feed_gen_body">
  	<div class="col-xs-12">
  		​
@@ -21,7 +21,7 @@
 							</div>
 							<div class="col-xs-4">
 								<div class="dropdown text-right">
-									<button class="dropdown-toggle navtext" type="button" data-toggle="dropdown">Michael
+									<button class="dropdown-toggle navtext" type="button" data-toggle="dropdown">{{firstName}}
 										<span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu dropdown-menu-right drpdwn">
@@ -37,7 +37,7 @@
 									</ul>
 								</div>
 								<div class="">
-									<img class="profilepic" src="https://lh3.googleusercontent.com/-wysvRmf4xz4/AAAAAAAAAAI/AAAAAAAAAAA/GluI72KIjv0/photo.jpg">		
+									<img class="profilepic" src={{fireUser.photoURL}}>		
 								</div>
 							</div>
 						</div>
@@ -96,8 +96,8 @@
  			</div>
  		</div>
  		<div class="col-md-3 poster_id">
- 			<div class="poster_pic"><img class="posterimg" src="../images/linkedin.jpg"/> </div>
- 			<div class="poster_name"> Stella Pickard </div>
+ 			<div class="poster_pic"><img class="posterimg" src={{announcement.postPic}}/> </div>
+ 			<div class="poster_name">{{announcement.postName}}</div>
  			<div class="post_time"> 12 March 2016 &bull; 14h23</div>
  		</div>
  	</div>
