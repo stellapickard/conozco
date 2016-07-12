@@ -109,77 +109,44 @@ app.controller('profile_controller', function($scope, $http, $firebaseArray, $lo
   		else {
   			console.log("Not Signed In");
   			$location.path("/");
-  		}
-  	});
+  		};
 
 
-	
-	// EMPLOYEE ONBOARDING 
-	 var employeeRef = firebase.database().ref().child("employees");
+  	 var employeeRef = firebase.database().ref().child("employees");
  	 $scope.employees = $firebaseArray(employeeRef);
- 	 console.log($scope.employees);
+ 	 	console.log($scope.employees);
      $scope.newEmployee = {};
 	
 	 $scope.addEmployee = function (){
-	 	$scope.employee.$add($scope.newEmployee);
-	 }; 
+	 	$scope.employees.$add($scope.newEmployee);
+	 };
+
+
+  	});
+ 
 
 	// PROFILE IMAGE & PEDIGREE SWAP OUT FUNCTION
+	// $('.default_display').mouseover(function(){
+	// 	$(this).find('.hover_display').css('display','block');
+	// });
 
-	
-
-	$('.default_display').mouseover(function(){
-		$(this).find('.hover_display').css('display','block');
-	});
-
-	$('.default_display').mouseout(function(){
-		$(this).find('.hover_display').css('display','none');
-	});
+	// $('.default_display').mouseout(function(){
+	// 	$(this).find('.hover_display').css('display','none');
+	// });
 
 
 	// ON CLICK FUNCTION FOR MOBILE DESIGN
-	$('.default_display').click(function(){
-		if ($(this).find('.hover_display').css('display') === "none"){
-			$(this).find('.hover_display').css('display', 'block')
-		} else {
-			$(this).find('.hover_display').css('display', 'none');
-		}
-	});
+	// $('.default_display').click(function(){
+	// 	if ($(this).find('.hover_display').css('display') === "none"){
+	// 		$(this).find('.hover_display').css('display', 'block')
+	// 	} else {
+	// 		$(this).find('.hover_display').css('display', 'none');
+	// 	}
+	// });
 
 // END OF CONTROLLER - LEAVE IMAGE UPLOAD CODE OUTSIDE CONTROLLER
 
 });
-
-function imgUploadFunction(){
-		var x = document.getElementById("photo_upload");
-		var txt = "";
-		if ('files' in x) {
-			if (x.files.length == 0) {
-				txt = "";
-			} else {
-				for (var i = 0; i < x.files.length; i++) {
-					txt += "<br><strong>" + (i+1) + " file</strong><br>";
-					var file = x.files[i];
-					if ('name' in file) {
-						txt += "Name: " + file.name + "<br>";
-					}
-					if ('size' in file) {
-						txt += "Size: " + file.size + " bytes <br>";
-					}
-				}
-			}
-		}
-		else {
-			if (x.value == "") {
-				txt += "Please select an image";
-			} else {
-				txt += "The files property is not supported by your browser!";
-				txt  += "<br>The path of the selected file: " + x.value; 
-           // If the browser does not support the files property, it will return the path of the selected file instead.
-         }
-       }
-       document.getElementById("img_upload").innerHTML = txt;
-     }
 
 
 // WORKFEED_CONTROLLER
@@ -196,6 +163,23 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
   			$location.path("/");
   		}
   	});
+
+	// START OF API SETUP 
+
+	// var url = "https://twinword-sentiment-analysis.p.mashape.com/analyze/";
+	// $http({
+	// 	method: "GET",
+	// 	data: "text=",
+	// 	url: url, 
+	// 	headers: {"X-Mashape-Key": "IU5RDQiu0omshnKfW2nXe6Qe891Hp16W0Vjjsnwn8zDAeD07gY","Accept": "application/json",},
+	// 	success: analyzeSentiments,
+ //    	error: function() {
+ //    	alert("there has been an error...")
+ //    		}
+	// 	});
+ 
+
+	// END OF SENTIMENT STUFF
 
 	var feedRef = firebase.database().ref().child("work_feed");
 	$scope.announcements = $firebaseArray(feedRef);
@@ -216,6 +200,8 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 		$scope.newComment={};
 
 	};
+
+
 
 	//SCORE COUNTER TOOL WHICH WORKS
 
