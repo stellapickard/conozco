@@ -123,10 +123,9 @@
 			</div>
 
 			<!-- END OF MODAL --> 
-
-			<div class="col-md-3 pic_col">
+			<div class="col-md-3 pic_col" ng-repeat="employee in employees">
 				<div class="employee_pic default_display">
-					<div class="profile_hover_replacement hover_display" style="display:none" ng-repeat="employee in employees">
+					<div class="profile_hover_replacement hover_display" style="display:none" >
 						<h1 class="profile_name"> {{employee.name}} </h1>
 						<p class="profile_details"> {{employee.department}} </p><br>
 						<p class="profile_details"> {{employee.role}} </p><br>
@@ -136,54 +135,7 @@
 				</div>
 				<!-- HOVER EFFECT OVER PROFILE IMAGE -->
 			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
-			<div class="col-md-3 pic_col">
-				<div class="employee_pic"></div>
-			</div>
+			
 		</div>
 
 	</div>

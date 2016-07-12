@@ -9,6 +9,7 @@ var config = {
 var app = angular.module("ConozcoApp", ["ngRoute","firebase", "angular.filter"]);
 
 var currentUserToken = "";
+var test;
 // ROUTE CONFIGURATION
 
 app.config(function($routeProvider){
@@ -80,17 +81,20 @@ app.controller('login_controller', function($scope, $firebaseAuth, $location, $f
 app.controller('profile_controller', function($scope, $http, $firebaseArray){
 
 
+	
 	// EMPLOYEE ONBOARDING 
 	 var employeeRef = firebase.database().ref().child("employees");
- 	 $scope.employee = $firebaseArray(employeeRef);
-
+ 	 $scope.employees = $firebaseArray(employeeRef);
+ 	 console.log($scope.employees);
      $scope.newEmployee = {};
 	
 	 $scope.addEmployee = function (){
-	 $scope.employee.$add($scope.newEmployee);
+	 	$scope.employee.$add($scope.newEmployee);
 	 }; 
 
 	// PROFILE IMAGE & PEDIGREE SWAP OUT FUNCTION
+
+	
 
 	$('.default_display').mouseover(function(){
 		$(this).find('.hover_display').css('display','block');
@@ -154,6 +158,8 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 	$scope.announcements = $firebaseArray(feedRef);
 	$scope.newAnnouncement = {};
 	$scope.newComment ={};
+	
+	
 
 	$scope.postAnnouncement = function (){
 		// console.log($scope.newAnnouncement);
@@ -166,6 +172,27 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 		commentsRef.push().set($scope.newComment);
 		$scope.newComment={};
 
+	};
+
+	//SCORE COUNTER TOOL WHICH WORKS
+
+	// $scope.score = 0;
+
+	// $scope.onClick = function() {	
+	// $scope.score += 1;
+	// console.log($scope.score);
+	// };
+
+	//NOW TRYING TO SAVE TO FIREBASE
+	//console.log($scope.announcements);
+	$scope.score = 0;
+
+	$scope.onClick = function(announcement) {	
+		test = announcement;
+		var scoreRef = firebase.database().ref('work_feed/'+announcement.$id).child('scores');
+		$scope.score += 1;
+		console.log(scoreRef);
+		scoreRef.push().set($scope.score);
 	};
 	
 });
@@ -180,7 +207,6 @@ app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, 
 	$scope.newComment ={};
 
 	$scope.postAnnouncement = function (){
-		// console.log($scope.newAnnouncement);
 		$scope.announcements.$add($scope.newAnnouncement);
 		$scope.newAnnouncement = {};
 	};
