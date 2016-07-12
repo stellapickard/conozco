@@ -154,8 +154,6 @@ app.controller('profile_controller', function($scope, $http, $firebaseArray, $lo
 
 // END OF CONTROLLER - LEAVE IMAGE UPLOAD CODE OUTSIDE CONTROLLER
 
-});
-
 // WORKFEED_CONTROLLER
 
 app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $firebaseArray, $location){
