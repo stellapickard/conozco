@@ -8,8 +8,17 @@ firebase.initializeApp(config);
 
 var app = angular.module("ConozcoApp", ["ngRoute","firebase", "angular.filter"]);
 
+app.filter('keylength', function(){
+  return function(input){
+  	if(!angular.isObject(input)){
+      return 0;
+    }
+    return Object.keys(input).length;
+  }
+});
+
+
 var currentUserToken = "";
-var test;
 
 var currentUser = "";
 var currentToken = "";
@@ -116,13 +125,29 @@ app.controller('profile_controller', function($scope, $http, $firebaseArray, $lo
 		}
 	});
 
+	
+	function rebindHovers() {
+		$('.default_display').mouseover(function(){
+			$(this).find('.hover_display').css('display','block');
+		});
+
+		$('.default_display').mouseout(function(){
+			$(this).find('.hover_display').css('display','none');
+		});
+	}
 
 	
 	// EMPLOYEE ONBOARDING 
 	var employeeRef = firebase.database().ref().child("employees");
 	$scope.employees = $firebaseArray(employeeRef);
-	console.log($scope.employees);
 	$scope.newEmployee = {};
+
+	$scope.employees.$watch(function() {
+	  	setTimeout(function(){ 
+	  		rebindHovers();
+	  	}, 1000);
+  	});
+  	
 	
 	$scope.addEmployee = function (){
 		$scope.employee.$add($scope.newEmployee);
@@ -225,10 +250,7 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 	$scope.score = 0;
 
 	$scope.onClick = function(announcement) {	
-		test = announcement;
 		var scoreRef = firebase.database().ref('work_feed/'+announcement.$id).child('scores');
-		$scope.score += 1;
-		console.log(scoreRef);
 		scoreRef.push().set($scope.score);
 	};
 	

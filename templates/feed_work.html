@@ -88,7 +88,7 @@
 			</div>
 			<div class="col-md-1 announce_importance" ng-click="onClick(announcement)"> 
 				<span class="glyphicon glyphicon-education"> </span> 
-				<p class="importance_score"> {{Object.keys(announcement.scores).length}} </p>
+				<p class="importance_score"> {{announcement.scores | keylength}} </p>
 			</div>
 			<div class="col-md-9 comment_box">
 				<input class="announce_comment" type="text" placeholder="   Comment..." ng-model="newComment.text">
