@@ -36,10 +36,15 @@ a:hover {
 /*NAVBAR STYLING*/
 
 .navbar {
-	background-image: url("./images/chalkboard.jpg");
+	/*background-image: url("./images/chalkboard.jpg");*/
+	background-color: black; /* For browsers that don't support gradients*/
+    background: -webkit-linear-gradient(top,rgba(0,0,0,1),rgba(0,0,0,0)); /*Safari 5.1-6*/
+    background: -o-linear-gradient(top,rgba(0,0,0,1),rgba(0,0,0,0)); /*Opera 11.1-12*/
+    background: -moz-linear-gradient(top,rgba(0,0,0,1),rgba(0,0,0,0)); /*Fx 3.6-15*/
+    background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,)); /*Standard*/
 	width: 100%;
 	position: fixed;
-	border: 2px solid pink;
+	border: none;
 	z-index: 1;
 }
 
@@ -50,12 +55,13 @@ a:hover {
 
 .peoplemap {
 	
-	border: 2px solid antiquewhite;
+	border: 2px solid #f4ece1;
 	float: right;
 	margin-top: 35px;
 	height: 70px;
 	width: 70px;
-	background: lightslategrey;
+	/*background: lightslategrey;*/
+	background-color: #f4ece1;
 	border-radius: 3px;
 	text-align: center;
 	padding-top: 12px;
@@ -63,7 +69,7 @@ a:hover {
 }
 
 .peoplemaptext {
-	color: antiquewhite;
+	color: #000000;
 	padding: auto;
 }
 
@@ -71,11 +77,11 @@ a:hover {
 	font-size: 1.4em;
 	padding-left: 6px;
 	padding-right: 6px;
-	border-radius: 2px;
+	/*border-radius: 2px;*/
 	margin-top: -2px;
-	border: 2px solid antiquewhite;
-	background: grey;
-	color: antiquewhite;
+	/*border: 2px solid #f4ece1;*/
+	background-color: #575757;
+	color: #f4ece1;
 }
 
 .profilepic {
@@ -85,18 +91,18 @@ a:hover {
 	width: 100px;
 	border: 2px solid #db4ca1;
 	border-radius: 100%;
-	background: grey;
+	/*background: grey;*/
 	float: right;
 }
 
 .drpdwn {
 	text-align: right;
-	background: grey;
+	background-color: #575757;
 	opacity: .9;	
 }
 
 .navlink {
-	color: antiquewhite;
+	color: #f4ece1;
 	font-size: 1.2em;
 }
 
@@ -237,6 +243,62 @@ a:hover {
 	height: 830px;
 }
 
+
+.toggle_row {
+	color: white;
+	text-align: center;
+	padding-top: 40px;
+}
+
+.toggle {
+	font-family: Lobster;
+	font-size: 26px;
+	border: dotted 2px #cc007a;
+	border-radius: 5px;
+	margin-top: 20px;
+	margin-left: 3px;
+	margin-right: 3px;
+	width: 310px;
+	text-shadow: black 1px 1px;
+	opacity: 0.8;
+}
+
+.toggle_gen_active {
+	font-family: Lobster;
+	font-size: 26px;
+	border: solid 4px #cc007a;
+	border-radius: 5px;
+	margin-top: 20px;
+	margin-left: 3px;
+	margin-right: 3px;
+	width: 310px;
+	text-shadow: black 1px 1px;
+	cursor: pointer;
+}
+
+.toggle_work_active {
+	font-family: Lobster;
+	font-size: 26px;
+	border: solid 4px #cc007a;
+	border-radius: 5px;
+	margin-top: 20px;
+	margin-left: 3px;
+	margin-right: 3px;
+	width: 310px;
+	text-shadow: black 1px 1px;
+	cursor: pointer;
+}
+
+.toggle:hover {
+	padding-top: 2px;
+	cursor: pointer;
+}
+
+.switch {
+	padding-left: 0px;
+	padding-top: 15px;
+}
+
 /* STYLING ON WORK ANNOUNCEMENT BUBBLE*/
 
 .workfeed_scroll {
@@ -277,7 +339,7 @@ a:hover {
 	border-radius: 4px;
 	background-color: #f4ece1;
 	min-height: 160px;
-	width: 500px;
+	width: 600px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	opacity: 0.9;
@@ -285,19 +347,27 @@ a:hover {
 
 .add_announce {
 	color: #cc007a;
-	font-size: 60px;
+	font-family: Lobster;
+	font-size: 26px;
 	text-align: center;
-	
-	text-shadow: 1px 1px #f4ece1;
 	padding-bottom: 20px;
+	margin-top: 140px;
+}
+
+.plus {
+	cursor: pointer;
+}
+.plus:hover {
+	text-shadow: none;
+	text-shadow: 1px 1px #f4ece1;
 }
 
 .gen_announcement_bubble {
-	border: 2px solid #cc007a;
+	border: 2px solid #afa4ab;
 	border-radius: 4px;
-	background-color: #cc007a;
+	background-color: #afa4ab;
 	height: 160px;
-	width: 500px;
+	width: 600px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	opacity: 0.9;
@@ -379,53 +449,6 @@ a:hover {
 	border-top-right-radius: 7px;
 	border-bottom-right-radius: 7px;
 	position: fixed;
-}
-
-.vertical_text {
-	-moz-transform: rotate(270deg);  /* FF3.5+ */
-    -o-transform: rotate(270deg);  /* Opera 10.5 */
-    -webkit-transform: rotate(-90deg);  /* Saf3.1+, Chrome */
-    -moz-transform-origin: 100% 100%;
-    -o-transform-origin: 100% 100%;
-    -webkit-transform-origin: 100% 100%;
-}
-
-.vertical2 {
-	z-index: 1;
-    position: fixed;
-    background-color: #cc007a;
-    padding: 10px;
-    padding-top: 6px;
-    border-radius: 0 0 7px 7px;
-    left:-200px;
-    top:300px;
-    font-size: 13px;
-    color: #f4ece1;
-    -moz-transform: rotate(270deg);  /* FF3.5+ */
-    -o-transform: rotate(270deg);  /* Opera 10.5 */
-    -webkit-transform: rotate(-90deg);  /* Saf3.1+, Chrome */
-    -moz-transform-origin: 100% 100%;
-    -o-transform-origin: 100% 100%;
-    -webkit-transform-origin: 100% 100%;
-} 
-
-.gen_announce_vertical {
-	z-index: 1;
-	position: fixed;
-    background-color: #cc007a;
-    padding: 10px;
-    padding-top: 6px;
-    border-radius: 0 0 7px 7px;
-    left:-182px;
-    top:304px;
-    font-size: 13px;
-    color: #f4ece1;
-    -moz-transform: rotate(270deg);  /* FF3.5+ */
-    -o-transform: rotate(270deg);  /* Opera 10.5 */
-    -webkit-transform: rotate(-90deg);  /* Saf3.1+, Chrome */
-    -moz-transform-origin: 100% 100%;
-    -o-transform-origin: 100% 100%;
-    -webkit-transform-origin: 100% 100%;
 }
 
 
