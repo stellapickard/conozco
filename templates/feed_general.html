@@ -1,29 +1,26 @@
-<!--  <button class="gen_announce_vertical" ng-click="workLink()">switch to work announcements</button>
- <div class="row feed_gen_body">
- 	<div class="col-xs-12"> -->
- 		​
  		<!--THIS IS WHERE THE NAV BAR STUFF GOES-->
 
  		<div class="row navbar" style="top:0px;">
  			<div class="col-xs-12">
  				<div class="row">
- 					<div class="col-xs-3 character">
- 						<img class="characterImg" src="./images/tempcharacter.png" alt="">
+ 					<div class="col-xs-2 character">
+ 						<img class="characterImg" src="./images/gslogo.png" alt="">
  					</div>
- 					<div class="col-xs-6">
+ 					<div class="col-xs-8 toggle_row_center">
  						<div class="toggle_row">
- 							<div class="col-xs-12 toggle_gen_active" > 
+ 							
+ 								<div class="col-xs-12 toggle_gen_active" > 
  								General Announcements 
- 							</div>
- 							<div class="col-xs-12 toggle" ng-click="workLink()"> 
+ 								</div>
+ 								<div class="col-xs-12 toggle" ng-click="workLink()"> 
  								Work Announcements
- 							</div>
- 							<div class="col-xs-12 switch"> switch channels </div>
+ 								</div>
+ 								<div class="col-xs-12 switch"> switch channels </div>
+ 	
  						</div>
  					</div>
- 					<div class="col-xs-3 userButtonMap">
- 						<div class="row">
- 							<div class="col-xs-8 text-center">
+ 					<div class="col-xs-2 userButtonMap">
+ 							<div class="col-xs-4 text-center">
 								<!-- <p class="peoplemap">
 									<a href="#/profile">
 										<span class="peoplemaptext">People Map</span>
@@ -31,7 +28,7 @@
 								</p> -->
 							</div>
 
-							<div class="col-xs-4">
+							<div class="col-xs-8 photo_stick">
 								<div class="dropdown text-right">
 									<button class="dropdown-toggle navtext" type="button" data-toggle="dropdown">{{firstName}}
 										<span class="caret"></span>
@@ -50,8 +47,8 @@
 									<img class="profilepic" ng-src={{fireUser.photoURL}}>		
 								</div>
 							</div>
-						</div>
 					</div>
+
 				</div>					
 				<div class="row"></div>
 			</div>
@@ -83,9 +80,9 @@
 		</div>
 
 
- 	<div class="row" ng-repeat="announcement in announcements | reverse">
+ 	<div class="row announcement_row" ng-repeat="announcement in announcements | reverse">
  		​
- 		<div class="col-md-6 col-md-offset-3 gen_announcement_bubble">
+ 		<div class="col-md-9 col-md-offset-3 gen_announcement_bubble">
  			<div class="col-md-12"> 
  				<h4 class="announce_subject"> {{announcement.title}} </h4>
  				<p class="announce_text"> {{announcement.text}} </p>

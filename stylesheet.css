@@ -1,6 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Lobster';
 @import 'https://fonts.googleapis.com/css?family=Ribeye';
 @import 'https://fonts.googleapis.com/css?family=Comfortaa';
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 
 /*
 OFF-WHITE - #f4ece1
@@ -54,7 +55,6 @@ a:hover {
 }
 
 .peoplemap {
-	
 	border: 2px solid #f4ece1;
 	float: right;
 	margin-top: 35px;
@@ -75,8 +75,8 @@ a:hover {
 
 .navtext {
 	font-size: 1.4em;
-	padding-left: 6px;
-	padding-right: 6px;
+	/*padding-left: 6px;
+	padding-right: 6px;*/
 	/*border-radius: 2px;*/
 	margin-top: -2px;
 	/*border: 2px solid #f4ece1;*/
@@ -85,7 +85,7 @@ a:hover {
 }
 
 .profilepic {
-	margin-top: 10px;
+	margin-top: 50px;
 	margin-bottom: 10px;
 	height: 100px;
 	width: 100px;
@@ -99,6 +99,12 @@ a:hover {
 	text-align: right;
 	background-color: #575757;
 	opacity: .9;	
+}
+
+.text-right {
+	width: 100px;
+	position: fixed;
+	right: 0px;
 }
 
 .navlink {
@@ -117,13 +123,23 @@ a:hover {
 }
 
 .gs_login_banner {
-	font-family: Lobster;
+	font-family: Raleway;
 	color: #cc007a;
 	font-size: 75px;
-	padding-top: 200px;
+	padding-top: 0px;
 	padding-bottom: 40px;
-	text-shadow: 2px 2px #f4ece1;
+	/*text-shadow: 2px 2px #f4ece1;*/
+}
 
+.get {
+	color: #f4ece1;
+}
+
+.cap {
+	font-size: 90px;
+	color: #cc007a;
+	padding-top: 180px;
+	padding-bottom: 0px;
 }
 
 .login_button {
@@ -193,6 +209,17 @@ a:hover {
 	display: block;
 }
 
+.userButtonMap {
+	top: 0px;
+	right: 0px;
+	position: fixed;
+
+}
+
+.photo_stick {
+	padding: 0px;
+}
+
 /* HOVER ON PROFILE */
 .profile_hover_replacement {
 	text-align: center;
@@ -248,6 +275,24 @@ a:hover {
 	color: white;
 	text-align: center;
 	padding-top: 40px;
+	width: 100%;
+}
+
+@media (max-width: 768px){
+	.toggle_row {
+		padding-left: 90px;
+		margin-right: 20px;
+	}
+}
+
+.toggle_row_center {
+	padding-left: 110px;
+}
+
+@media (max-width: 768px){
+	.toggle_row_center {
+		padding-left: 30px;
+	}
 }
 
 .toggle {
@@ -261,6 +306,7 @@ a:hover {
 	width: 310px;
 	text-shadow: black 1px 1px;
 	opacity: 0.8;
+	margin: auto;
 }
 
 .toggle_gen_active {
@@ -268,12 +314,13 @@ a:hover {
 	font-size: 26px;
 	border: solid 4px #cc007a;
 	border-radius: 5px;
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 	margin-left: 3px;
 	margin-right: 3px;
 	width: 310px;
 	text-shadow: black 1px 1px;
 	cursor: pointer;
+
 }
 
 .toggle_work_active {
@@ -281,7 +328,6 @@ a:hover {
 	font-size: 26px;
 	border: solid 4px #cc007a;
 	border-radius: 5px;
-	margin-top: 20px;
 	margin-left: 3px;
 	margin-right: 3px;
 	width: 310px;
@@ -297,6 +343,14 @@ a:hover {
 .switch {
 	padding-left: 0px;
 	padding-top: 15px;
+	padding-right: 150px;
+}
+
+.work_switch {
+	padding-left: 90px;
+	padding-top: 15px;
+	padding-right: 150px;
+
 }
 
 /* STYLING ON WORK ANNOUNCEMENT BUBBLE*/
@@ -339,7 +393,7 @@ a:hover {
 	border-radius: 4px;
 	background-color: #f4ece1;
 	min-height: 160px;
-	width: 600px;
+	max-width: 600px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	opacity: 0.9;
@@ -356,10 +410,15 @@ a:hover {
 
 .plus {
 	cursor: pointer;
+	padding-right: 60px;
 }
 .plus:hover {
 	text-shadow: none;
 	text-shadow: 1px 1px #f4ece1;
+}
+
+.announcement_row {
+	margin: auto;
 }
 
 .gen_announcement_bubble {
@@ -367,7 +426,7 @@ a:hover {
 	border-radius: 4px;
 	background-color: #afa4ab;
 	height: 160px;
-	width: 600px;
+	max-width: 600px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	opacity: 0.9;
