@@ -94,8 +94,9 @@ app.controller('login_controller', function($scope, $firebaseAuth, $location, $f
 	}
 
 	$scope.signOut = function(){
-		auth.$signOut();
-	}
+		$location.path("/")
+		auth.$signOut()
+			}
 
 	$scope.workLink = function(){
 		$location.path("/work")
@@ -196,20 +197,37 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 		}
 	});
 
-	// START OF API SETUP 
-
-	// var url = "https://twinword-sentiment-analysis.p.mashape.com/analyze/";
-	// $http({
-	// 	method: "GET",
-	// 	data: "text=",
-	// 	url: url, 
-	// 	headers: {"X-Mashape-Key": "IU5RDQiu0omshnKfW2nXe6Qe891Hp16W0Vjjsnwn8zDAeD07gY","Accept": "application/json",},
-	// 	success: analyzeSentiments,
- //    	error: function() {
- //    	alert("there has been an error...")
- //    		}
-	// 	});
+	// START OF API SETUP WITH ANGULAR
  
+
+		$http({
+  		method: 'POST',
+  		url: 'https://twinword-sentiment-analysis.p.mashape.com/analyze/',
+  		headers: {"X-Mashape-Key": "IU5RDQiu0omshnKfW2nXe6Qe891Hp16W0Vjjsnwn8zDAeD07gY","Accept": "application/json",},
+  		data: {
+  			text: $scope.newAnnouncement, //???
+  			}
+		}).then(function successCallback(response) {
+			console.log('checking post');
+			console.log(response);
+			console.log ($scope.newAnnouncement);
+  		  // this callback will be called asynchronously
+    		// when the response is available
+  		}, function errorCallback(response) {
+    	alert("Sorry, there has been an error with your announcement. Please try to post again. ")
+ 		});
+
+ 		$http({
+  		method: 'GET',
+  		url: 'https://twinword-sentiment-analysis.p.mashape.com/analyze/',
+  		headers: {"X-Mashape-Key": "IU5RDQiu0omshnKfW2nXe6Qe891Hp16W0Vjjsnwn8zDAeD07gY","Accept": "application/json",},
+		}).then(function successCallback(response) {
+			console.log('checking get');
+  		  // this callback will be called asynchronously
+    // when the response is available
+  		}, function errorCallback(response) {
+    	alert("Sorry, there has been an error with your announcement. Please try to post again. ")
+ 		});
 
 	// END OF SENTIMENT STUFF
 
@@ -263,6 +281,8 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 	$scope.profLink = function(){
 		$location.path("/profile")
 	}
+
+
 
 });
 
