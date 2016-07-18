@@ -6,6 +6,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var SENT_URL = 'https://twinword-sentiment-analysis.p.mashape.com/analyze/';		
+
 var app = angular.module("ConozcoApp", ["ngRoute","firebase", "angular.filter"]);
 
 app.filter('keylength', function(){
@@ -197,59 +199,48 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 		}
 	});
 
-	// START OF API SETUP WITH ANGULAR
- 
-
-		$http({
-  		method: 'POST',
-  		url: 'https://twinword-sentiment-analysis.p.mashape.com/analyze/',
-  		headers: {"X-Mashape-Key": "IU5RDQiu0omshnKfW2nXe6Qe891Hp16W0Vjjsnwn8zDAeD07gY","Accept": "application/json",},
-  		data: {
-  			text: $scope.newAnnouncement, //???
-  			}
-		}).then(function successCallback(response) {
-			console.log('checking post');
-			console.log(response);
-			console.log ($scope.newAnnouncement);
-  		  // this callback will be called asynchronously
-    		// when the response is available
-  		}, function errorCallback(response) {
-    	alert("Sorry, there has been an error with your announcement. Please try to post again. ")
- 		});
-
- 		$http({
-  		method: 'GET',
-  		url: 'https://twinword-sentiment-analysis.p.mashape.com/analyze/',
-  		headers: {"X-Mashape-Key": "IU5RDQiu0omshnKfW2nXe6Qe891Hp16W0Vjjsnwn8zDAeD07gY","Accept": "application/json",},
-		}).then(function successCallback(response) {
-			console.log('checking get');
-  		  // this callback will be called asynchronously
-    // when the response is available
-  		}, function errorCallback(response) {
-    	alert("Sorry, there has been an error with your announcement. Please try to post again. ")
- 		});
-
-	// END OF SENTIMENT STUFF
+		var url = 'https://twinword-sentiment-analysis.p.mashape.com/analyze/';
 
 	var feedRef = firebase.database().ref().child("work_feed");
 	$scope.announcements = $firebaseArray(feedRef);
 	$scope.newAnnouncement = {};
-	$scope.newComment ={};
+	$scope.newComment = {};
 	
-	
+	$scope.callSentAjax = function(text, callback){
+		$.ajax({
+      type: "GET",
+      url: SENT_URL,
+      headers: {"X-Mashape-Key":"IU5RDQiu0omshnKfW2nXe6Qe891Hp16W0Vjjsnwn8zDAeD07gY"},
+      data: { text: text },
+      dataType: "json",
+      success: function(response) {
+        $scope.newAnnouncement.postSent = (response.score).toFixed(2);
+        callback();
+      },
+      error: function(err) {
+        alert("Error with Sentiment Call");
+      }
+    });
+	}
 
 	$scope.postAnnouncement = function (){
 		$scope.newAnnouncement.postName = $scope.fireUser.displayName;
 		$scope.newAnnouncement.postPic = $scope.fireUser.photoURL;
 		$scope.newAnnouncement.postDate = "";
-		$scope.announcements.$add($scope.newAnnouncement);
-		$scope.newAnnouncement = {};
+		$scope.callSentAjax($scope.newAnnouncement.text, function(){
+			$scope.announcements.$add($scope.newAnnouncement);
+			$scope.newAnnouncement = {};
+		});
 	};
 
-	$scope.postComment = function (announcement) {
+	$scope.postComment = function (announcement, comment) {
+		$scope.newComment = {
+			text: comment,
+			poster: $scope.fireUser.displayName
+		}
 		var commentsRef = firebase.database().ref("work_feed/"+announcement.$id).child('comments');
 		commentsRef.push().set($scope.newComment);
-		$scope.newComment={};
+		$scope.newComment = {};
 	};
 
 
@@ -306,7 +297,7 @@ app.controller('generalfeed_controller', function($scope, $http, $firebaseAuth, 
 	var feedRef = firebase.database().ref().child("general_feed");
 	$scope.announcements = $firebaseArray(feedRef);
 	$scope.newAnnouncement = {};
-	$scope.newComment ={
+	$scope.newComment = {
 		text: ""
 	};
 
