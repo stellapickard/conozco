@@ -8,8 +8,17 @@ firebase.initializeApp(config);
 
 var app = angular.module("ConozcoApp", ["ngRoute","firebase", "angular.filter"]);
 
+app.filter('keylength', function(){
+  return function(input){
+  	if(!angular.isObject(input)){
+      return 0;
+    }
+    return Object.keys(input).length;
+  }
+});
+
+
 var currentUserToken = "";
-var test;
 
 var currentUser = "";
 var currentToken = "";
@@ -85,8 +94,9 @@ app.controller('login_controller', function($scope, $firebaseAuth, $location, $f
 	}
 
 	$scope.signOut = function(){
-		auth.$signOut();
-	}
+		$location.path("/")
+		auth.$signOut()
+			}
 
 	$scope.workLink = function(){
 		$location.path("/work")
@@ -116,13 +126,29 @@ app.controller('profile_controller', function($scope, $http, $firebaseArray, $lo
 		}
 	});
 
+	
+	function rebindHovers() {
+		$('.default_display').mouseover(function(){
+			$(this).find('.hover_display').css('display','block');
+		});
+
+		$('.default_display').mouseout(function(){
+			$(this).find('.hover_display').css('display','none');
+		});
+	}
 
 	
 	// EMPLOYEE ONBOARDING 
 	var employeeRef = firebase.database().ref().child("employees");
 	$scope.employees = $firebaseArray(employeeRef);
-	console.log($scope.employees);
 	$scope.newEmployee = {};
+
+	$scope.employees.$watch(function() {
+	  	setTimeout(function(){ 
+	  		rebindHovers();
+	  	}, 1000);
+  	});
+  	
 	
 	$scope.addEmployee = function (){
 		$scope.employee.$add($scope.newEmployee);
@@ -171,20 +197,37 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 		}
 	});
 
-	// START OF API SETUP 
-
-	// var url = "https://twinword-sentiment-analysis.p.mashape.com/analyze/";
-	// $http({
-	// 	method: "GET",
-	// 	data: "text=",
-	// 	url: url, 
-	// 	headers: {"X-Mashape-Key": "IU5RDQiu0omshnKfW2nXe6Qe891Hp16W0Vjjsnwn8zDAeD07gY","Accept": "application/json",},
-	// 	success: analyzeSentiments,
- //    	error: function() {
- //    	alert("there has been an error...")
- //    		}
-	// 	});
+	// START OF API SETUP WITH ANGULAR
  
+
+		$http({
+  		method: 'POST',
+  		url: 'https://twinword-sentiment-analysis.p.mashape.com/analyze/',
+  		headers: {"X-Mashape-Key": "IU5RDQiu0omshnKfW2nXe6Qe891Hp16W0Vjjsnwn8zDAeD07gY","Accept": "application/json",},
+  		data: {
+  			text: $scope.newAnnouncement, //???
+  			}
+		}).then(function successCallback(response) {
+			console.log('checking post');
+			console.log(response);
+			console.log ($scope.newAnnouncement);
+  		  // this callback will be called asynchronously
+    		// when the response is available
+  		}, function errorCallback(response) {
+    	alert("Sorry, there has been an error with your announcement. Please try to post again. ")
+ 		});
+
+ 		$http({
+  		method: 'GET',
+  		url: 'https://twinword-sentiment-analysis.p.mashape.com/analyze/',
+  		headers: {"X-Mashape-Key": "IU5RDQiu0omshnKfW2nXe6Qe891Hp16W0Vjjsnwn8zDAeD07gY","Accept": "application/json",},
+		}).then(function successCallback(response) {
+			console.log('checking get');
+  		  // this callback will be called asynchronously
+    // when the response is available
+  		}, function errorCallback(response) {
+    	alert("Sorry, there has been an error with your announcement. Please try to post again. ")
+ 		});
 
 	// END OF SENTIMENT STUFF
 
@@ -225,10 +268,7 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 	$scope.score = 0;
 
 	$scope.onClick = function(announcement) {	
-		test = announcement;
 		var scoreRef = firebase.database().ref('work_feed/'+announcement.$id).child('scores');
-		$scope.score += 1;
-		console.log(scoreRef);
 		scoreRef.push().set($scope.score);
 	};
 	
@@ -241,6 +281,8 @@ app.controller('workfeed_controller', function($scope, $http, $firebaseAuth, $fi
 	$scope.profLink = function(){
 		$location.path("/profile")
 	}
+
+
 
 });
 
