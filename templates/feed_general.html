@@ -82,12 +82,12 @@
 
  	<div class="row announcement_row" ng-repeat="announcement in announcements | reverse">
  		​
- 		<div class="col-md-9 col-md-offset-3 gen_announcement_bubble">
- 			<div class="col-md-12"> 
+ 		<div class="col-xs-9 gen_announcement_bubble">
+ 			<div class="col-xs-12"> 
  				<h4 class="announce_subject"> {{announcement.title}} </h4>
  				<p class="announce_text"> {{announcement.text}} </p>
  			</div>
- 			<div class="col-md-12"> 
+ 			<div class="col-xs-12"> 
  				<ul>
  					<li class="comment_text" ng-repeat="comment in announcement.comments">{{comment.text}} </li> 
  				</ul>
@@ -96,14 +96,14 @@
  				<span class="glyphicon glyphicon-education"> </span> 
  				<p class="importance_score"> {{announcement.scores | keylength}} </p>
  			</div> -->
- 			<div class="col-md-9 comment_box">
+ 			<div class="col-xs-9 comment_box">
  				<input class="announce_comment" type="text" placeholder="   Comment..." ng-model="newComment.text">
  			</div>
- 			<div class="col-md-2">
+ 			<div class="col-xs-2">
  				<button class="post_comment" ng-click="postComment(announcement)"> Post</button>
  			</div>
  		</div>
- 		<div class="col-md-3 poster_id">
+ 		<div class="col-xs-3 poster_id">
  			<div class="poster_pic"><img class="posterimg" ng-src="{{announcement.postPic}}"> </div>
  			<div class="poster_name">{{announcement.postName}}</div>
  			<!-- <div class="post_time"> 12 March 2016 &bull; 14h23</div> -->
