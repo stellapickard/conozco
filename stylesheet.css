@@ -11,6 +11,8 @@ GREY - #575757
 MODAL PINK - #db4ca1
 */
 
+/* SORRY ABOUT HOW MESSY THIS STYLESHEET IS */
+
 
 body {
 	padding: 0;
@@ -37,6 +39,7 @@ a:hover {
 /*NAVBAR STYLING*/
 
 .navbar {
+	top: 0;
 	/*background-image: url("./images/chalkboard.jpg");*/
 	background-color: black; /* For browsers that don't support gradients*/
     background: -webkit-linear-gradient(top,rgba(0,0,0,1),rgba(0,0,0,0)); /*Safari 5.1-6*/
@@ -52,6 +55,15 @@ a:hover {
 .characterImg {
 	margin-left: 10px;
 	width: 150px;
+	background: rgba(209,180,140,1);
+	background: -moz-linear-gradient(top, rgba(209,180,140,1) 0%, rgba(43,14,30,0) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(209,180,140,1)), color-stop(100%, rgba(43,14,30,0)));
+	background: -webkit-linear-gradient(top, rgba(209,180,140,1) 0%, rgba(43,14,30,0) 100%);
+	background: -o-linear-gradient(top, rgba(209,180,140,1) 0%, rgba(43,14,30,0) 100%);
+	background: -ms-linear-gradient(top, rgba(209,180,140,1) 0%, rgba(43,14,30,0) 100%);
+	background: linear-gradient(to bottom, rgba(209,180,140,1) 0%, rgba(43,14,30,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1b48c', endColorstr='#2b0e1e', GradientType=0 );
+
 }
 
 .peoplemap {
@@ -60,7 +72,6 @@ a:hover {
 	margin-top: 35px;
 	height: 70px;
 	width: 70px;
-	/*background: lightslategrey;*/
 	background-color: #f4ece1;
 	border-radius: 3px;
 	text-align: center;
@@ -74,7 +85,7 @@ a:hover {
 }
 
 .navtext {
-	font-size: 1.4em;
+	font-size: 1.5em;
 	/*padding-left: 6px;
 	padding-right: 6px;*/
 	/*border-radius: 2px;*/
@@ -110,6 +121,12 @@ a:hover {
 .navlink {
 	color: #f4ece1;
 	font-size: 1.2em;
+	padding-right: 10px;
+}
+
+.navlink:hover {
+	font-size: 1.4em;
+	cursor: pointer;
 }
 
 
@@ -148,6 +165,8 @@ a:hover {
 	border-radius: 3px;
 	padding: 10px;
 	opacity: 0.7;
+	color: white;
+	font-size: 1.5em;
 }
 
 .login_button:hover {
@@ -278,7 +297,7 @@ a:hover {
 	width: 100%;
 }
 
-@media (max-width: 768px){
+/*@media (max-width: 768px){
 	.toggle_row {
 		padding-left: 90px;
 		margin-right: 20px;
@@ -294,30 +313,25 @@ a:hover {
 		padding-left: 30px;
 	}
 }
-
+*/
 .toggle {
 	font-family: Lobster;
-	font-size: 26px;
+	font-size: 2em;
+	margin-top: 4px;
 	border: dotted 2px #cc007a;
 	border-radius: 5px;
-	margin-top: 20px;
-	margin-left: 3px;
-	margin-right: 3px;
-	width: 310px;
+	width: 50%;
 	text-shadow: black 1px 1px;
 	opacity: 0.8;
-	margin: auto;
+
 }
 
 .toggle_gen_active {
 	font-family: Lobster;
-	font-size: 26px;
+	font-size: 1em;
 	border: solid 4px #cc007a;
 	border-radius: 5px;
-	/*margin-top: 20px;*/
-	margin-left: 3px;
-	margin-right: 3px;
-	width: 310px;
+	
 	text-shadow: black 1px 1px;
 	cursor: pointer;
 
@@ -325,32 +339,18 @@ a:hover {
 
 .toggle_work_active {
 	font-family: Lobster;
-	font-size: 26px;
+	font-size: 2em;
 	border: solid 4px #cc007a;
 	border-radius: 5px;
-	margin-left: 3px;
-	margin-right: 3px;
-	width: 310px;
+	width: 50%;
 	text-shadow: black 1px 1px;
 	cursor: pointer;
 }
 
 .toggle:hover {
-	padding-top: 2px;
+	padding-bottom: 3px;
+	padding-top: 3px;
 	cursor: pointer;
-}
-
-.switch {
-	padding-left: 0px;
-	padding-top: 15px;
-	padding-right: 150px;
-}
-
-.work_switch {
-	padding-left: 90px;
-	padding-top: 15px;
-	padding-right: 150px;
-
 }
 
 /* STYLING ON WORK ANNOUNCEMENT BUBBLE*/
@@ -372,6 +372,9 @@ a:hover {
 .announce_modal {
 	width: 100%;
 	border-radius: 3px;
+	margin: 5px 5px;
+	font-size: 1.2em;
+	padding: 5px;
 }
 
 
@@ -392,25 +395,30 @@ a:hover {
 	border: 2px solid #f4ece1;
 	border-radius: 4px;
 	background-color: #f4ece1;
-	min-height: 160px;
-	max-width: 600px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	opacity: 0.9;
+	padding-bottom: 15px;
+	font-size: 1.1em;
+
 }
 
 .add_announce {
 	color: #cc007a;
 	font-family: Lobster;
-	font-size: 26px;
+	font-size: 1.8em;
 	text-align: center;
 	padding-bottom: 20px;
-	margin-top: 140px;
+	margin-top: 160px;
 }
 
 .plus {
 	cursor: pointer;
-	padding-right: 60px;
+	background-color: antiquewhite;
+	border: 2px solid #cc007a;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-right: 30px;
 }
 .plus:hover {
 	text-shadow: none;
@@ -434,9 +442,18 @@ a:hover {
 }
 
 .announce_subject {
-	padding-left: 10px;
+	padding: 10px;
 	color: #cc007a;
+	font-size: 1.3em;
+	margin-bottom: 0px;
+}
 
+.score_text {
+	color: #cc007a;
+	padding-left: 10px;
+	font-size: .9em;
+	margin-top: -10px;
+	margin-bottom: 5px;
 }
 
 .gen_announce_subject {
@@ -447,10 +464,9 @@ a:hover {
 .announce_text {
 	width: 100%;
 	border: solid 1px #f4ece1;
-	padding-left: 10px;
+	padding: 10px;
 	background-color: white;
 	border-radius: 3px;
-	padding-bottom: 10px;
 }
 
 .announce_importance {
@@ -474,7 +490,7 @@ a:hover {
  	color: black;
  }
 
- .post_comment {
+ .comment {
  	border-radius: 3px;
  	padding-left: 5px;
  	padding-right: 5px;
@@ -484,10 +500,11 @@ a:hover {
  }
 
 .announce_comment {
-	height: 35px;
+
 	border-radius: 3px;
 	border: 1px solid white;
 	width: 100%;
+	padding: 10px;
 }
 
 
@@ -522,8 +539,8 @@ a:hover {
 
 
 .poster_pic {
-	height: 75px;
-	width: 75px;
+	height: 80px;
+	width: 80px;
 	border: solid 4px #cc007a;
 	border-radius: 100%;
 	margin: auto;
@@ -535,11 +552,17 @@ a:hover {
 	width: 100%;
 }
 
+
 .poster_name {
 	font-family: Lobster;
-	font-size: 20px;
+	font-size: 1.5em;
 	font-weight: bold;
 }
+
+.post_time {
+	font-size: 1.2em;
+}
+
 
 /* ADMIN PAGE STYLING */
 
